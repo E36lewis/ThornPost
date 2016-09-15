@@ -1,0 +1,88 @@
+<div class="row" data-animation="fadeInUp-fadeOutDown">
+  <div id="main-storie" class="col-xs-10 col-md-8 col-md-offset-2 col-xs-offset-1 main-content">
+    <% if admin_signed_in? %>
+      <%= feature_storie_button_for(@storie) %>
+    <% end %>
+
+    <div class="pull-right">
+      <%= render partial: 'storie/social_share', locals: { storie: @storie } %>
+    </div>
+    <%= render 'storie_metadata', storie: @storie %>
+
+    <% if @article.picture? %>
+      <div class="storie-picture-wrapper">
+        <%= image_tag @storie.picture.url(:thumb) %>
+      </div>
+    <% end %>
+
+    <h3 class="title"><%= @storie.title %></h3>
+    <div class="body">
+      <p><%= remove_javascript(@storie.body).html_safe %></p>
+    </div>
+
+    <div class="storie-tags">
+      <% @storie.tags.each do |tag| %>
+        <%= link_to tag.name, tag, class: 'tag' %>
+      <% end %>
+    </div>
+
+    <div class="storie-stats clearfix">
+      <div class="pull-left">
+        <%= render partial: 'storie/likes', locals: { storie: @storie } %>
+      </div>
+      <div class="pull-left">
+        <%= link_to storie_path(@storie, anchor: 'responses'), class: "response-icon-wrapper" do %>
+          <i class="fa fa-comment-o"></i>
+          <span class="response-count" data-behavior="response-count"><%= @storie.responses_count %></span>
+        <% end %>
+      </div>
+
+      <div class="pull-right">
+        <%= render partial: 'storie/bookmarks', locals: { storie: @storie } %>
+      </div>
+    </div>
+
+    <div class="author-info">
+      <div clas="author-metadata">
+        <%= avatar_for @storie.user, size: 50 %>
+        <div class="username-description">
+          <h4><%= @storie.user.username %></h4>
+          <p><%= @storie.user.description %></p>
+        </div>
+      </div>
+      <%= follow_button_for @storie.user %>
+    </div>
+
+    <% if user_signed_in? && current_user?(@storie.user) %>
+      <div class="edit-delete-button-wrapper">
+        <%= link_to "Edit", edit_storie_path(@storie), class: 'button' %>
+        <%= link_to "Delete", storie_path(@storie), method: :delete, class: 'button' %>
+      </div>
+    <% end %>
+  </div>
+</div> 
+
+<div class="post-show-footer row" data-animation="fadeInUp-fadeOutDown">
+  <% if @related_.any? %>
+    <div class="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3 main-content related-stories">
+      <h4 class="small-heading">Related stories</h4>
+      <% @related_storie.each do |post| %>
+        <%= render partial: 'storie/storie_list_item', locals: { storie: @storie } %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div id="responses" class="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3 main-content">
+    <h4 class="small-heading">Responses</h4>
+    <% if user_signed_in? %>
+      <%= render partial: 'posts/response_editor', locals: { post: @post } %>
+    <% end %>
+	<div data-behavior="responses-list">
+      <% if @responses.any? %>
+          <%= render @responses %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'stories/metadata_bar', locals: { storie: @storie } %>

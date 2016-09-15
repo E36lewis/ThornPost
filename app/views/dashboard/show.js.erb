@@ -1,0 +1,9 @@
+$('[data-behavior="endless-scroll"]').append('<%= j render @dashboard.stories %>');
+
+ReactRailsUJS.mountComponents();
+
+<% if @dashboard.stories.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @dashboard.stories %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

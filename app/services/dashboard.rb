@@ -1,0 +1,38 @@
+class Dashboard
+  attr_reader :user, :stories, :tag, :filter
+
+  def initialize(user: nil, posts: nil, tag: nil, filter: nil )
+    @user = user
+    @stories = stories
+    @tag = tag
+    @filter = filter
+  end
+
+  def featured_tags
+    Tag.where(featured: true)
+  end
+
+  def following_tags
+    user.following_tags unless user.nil?
+  end
+
+  def all_tags
+    Tag.all.limit(50)
+  end
+
+  def top_aricles
+    Storie.published.top_articles(5).includes(:user)
+  end
+
+  def new_storie
+    @user.stories.new
+  end
+
+  def filtered?
+    filter.present?
+  end
+
+  def top_articles?
+    filter == :top_articles
+  end
+end

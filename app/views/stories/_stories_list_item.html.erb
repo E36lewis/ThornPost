@@ -1,0 +1,16 @@
+<div class="storie-list-item">
+  <div class="flex-container">
+    <div class="avatar-wrapper">
+      <%= avatar_for(storie.user, size: 40) %>
+    </div>
+    <div class="storie-info">
+      <strong class="pli-title"><%= link_to storie.title, storie %></strong><br/>
+      <small class="pli-username"><%=link_to storie.username, storie.user %></small>
+    </div>
+    <% if storie.picture? %>
+      <div class="pli-picture-wrapper">
+        <%= image_tag storie.picture.url(:thumb) %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module RecommendedStoriesHelper
+end
