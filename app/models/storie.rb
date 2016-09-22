@@ -17,7 +17,7 @@ class Storie < ApplicationRecord
 
   scope :recent, -> { order(created_at: :desc) }
   scope :latest, ->(number) { recent.limit(number) }
-  scope :top_stories, ->(number) { order(likes_count: :desc).limit(number) }
+  scope :top_articles, ->(number) { order(likes_count: :desc).limit(number) }
   scope :published, -> { where.not(published_at: nil) }
   scope :drafts, -> { where(published_at: nil) }
   scope :featured, -> { where(featured: true) }
@@ -34,17 +34,17 @@ class Storie < ApplicationRecord
   friendly_id :title, use: [ :slugged, :history, :finders ]
 
   def self.new_draft_for(user)
-    post = self.new(user_id: user.id)
-    post.save_as_draft
-    post
+    storie = self.new(user_id: user.id)
+    storie.save_as_draft
+    storie
   end
 
   def self.tagged_with(name)
     Tag.find_by!(name: name).posts
   end
 
-  def related_posts(size: 3)
-    Post.joins(:taggings).where.not(id: self.id).where(taggings: { tag_id: self.tag_ids }).distinct.
+  def related_stories(size: 3)
+    Storie.joins(:taggings).where.not(id: self.id).where(taggings: { tag_id: self.tag_ids }).distinct.
       published.limit(size).includes(:user)
   end
 
@@ -91,13 +91,13 @@ class Storie < ApplicationRecord
   # FIXME: this method needs refactoring or completely different approach
   def generate_lead!
     if self.published?
-      post_body = Nokogiri::HTML::Document.parse(self.body)
-      if post_body.css('h2').size > 0
-        self.lead = post_body.css('h2')[0].to_s
-      elsif post_body.css('h3').size > 0
-        self.lead = post_body.css('h3')[0].to_s
-      elsif post_body.css('p').size > 0
-        self.lead = post_body.css('p')[0].to_s
+      storie_body = Nokogiri::HTML::Document.parse(self.body)
+      if storie_body.css('h2').size > 0
+        self.lead = storie_body.css('h2')[0].to_s
+      elsif storie_body.css('h3').size > 0
+        self.lead = storie_body.css('h3')[0].to_s
+      elsif storie_body.css('p').size > 0
+        self.lead = storie_body.css('p')[0].to_s
       end
     end
   end

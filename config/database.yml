@@ -23,7 +23,7 @@ default: &default
   username: Christopher
   password: spartan117
   host: localhost
-  timeout: 5000
+  #timeout: 5000
 
 development:
   <<: *default

@@ -18,11 +18,11 @@ class DashboardController < ApplicationController
     end
   end
 
-  def top_stories
+  def top_articles
     if user_signed_in?
-      @dashboard = Dashboard.new(user: current_user, posts: top_posts, filter: :top_stories)
+      @dashboard = Dashboard.new(user: current_user, stories: top_stories, filter: :top_articles)
     else
-      @dashboard = Dashboard.new(posts: top_posts, filter: :top_stories)
+      @dashboard = Dashboard.new(stories: top_stories, filter: :top_articles)
     end
     respond_to do |format|
       format.html { render :show }
@@ -40,11 +40,11 @@ class DashboardController < ApplicationController
       Feed.new(current_user, page: params[:page])
     end
 
-    #def bookmarked_posts
-    #  current_user.bookmarked_posts.published.includes(:user).paginate(page: params[:page])
-    #end
+    def bookmarked_stories
+      current_user.bookmarked_stories.published.includes(:user).paginate(page: params[:page])
+    end
 
-    def top_articles
+    def top_stories
       Storie.published.top_articles(5).includes(:user)
     end
 
@@ -52,7 +52,7 @@ class DashboardController < ApplicationController
       Storie.published.recent.includes(:user).paginate(page: params[:page])
     end
 
-    def featured_storie
+    def featured_stories
       Storie.recent.featured.includes(:user).paginate(page: params[:page])
     end
 end

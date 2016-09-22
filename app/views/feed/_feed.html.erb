@@ -1,0 +1,21 @@
+<% feed.stories.each do |storie| %>
+  <div class="feed-panel">
+    <% if feed.tagged?(storie) %>
+      <div class="feed-metadata">
+        <%= icon('tag') %> <%= link_to feed.tag_for(storie).name, feed.tag_for(storie) %>
+      </div>
+    <% elsif feed.recommended?(post) %>
+    <div class="feed-metadata">
+      Recommended by <%= link_to feed.recommender_for(storie).username, feed.recommender_for(storie) %>
+      <% if (storie.likes_count > 2) %>
+        and <%= pluralize(storie.likes.count - 1, 'other') %>
+      <% end %>
+    </div>
+    <% elsif feed.featured?(storie) %>
+      <div class="feed-metadata">
+        Featured by Articles Staff and recommended by <%= pluralize(storie.likes_count, 'other') %>
+      </div>
+    <% end %>
+    <%= render partial: 'stories/storie', locals: { storie: storie } %>
+  </div>
+<% end %>

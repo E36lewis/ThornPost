@@ -16,4 +16,17 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require medium-editor
+//= require handlebars
+//= require jquery-sortable
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require medium-editor-insert-plugin
+//= require taggle
+//= require jquery.autoSave
+//= require pubsub
+//= require bootstrap-sprockets
+//= require init
+//= require page_specific
 //= require_tree .

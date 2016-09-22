@@ -4,8 +4,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   
   def show
+    @followers_count = @user.followers.count
+    @following_count = @user.following.count
+    @recommended_stories = @user.liked_stories.latest(4).published.includes(:user)
 	@latest_stories = @user.stories.latest(3).published
   end
+  
   def edit
   end
 

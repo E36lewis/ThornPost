@@ -2,60 +2,60 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-	       # :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2]	 
+         :recoverable, :rememberable, :trackable, :validatable,
+	        :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2]	 
   
   validates :username, presence: true
   validate :avatar_image_size
 
   has_many :stories, dependent: :destroy
   has_many :responses, dependent: :destroy
-  #has_many :likes, dependent: :destroy
-  #has_many :liked_posts, through: :likes, source: :likeable, source_type: "Post"
-  #has_many :liked_responses, through: :likes, source: :likeable, source_type: "Response"
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :likeable, source_type: "Post"
+  has_many :liked_responses, through: :likes, source: :likeable, source_type: "Response"
 
-  #has_many :bookmarks, dependent: :destroy
-  #has_many :bookmarked_posts, through: :bookmarks, source: :bookmarkable, source_type: "Post"
-  #has_many :bookmarked_responses, through: :bookmarks, source: :bookmarkable, source_type: "Response"
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarked_posts, through: :bookmarks, source: :bookmarkable, source_type: "Post"
+  has_many :bookmarked_responses, through: :bookmarks, source: :bookmarkable, source_type: "Response"
 
-  #has_many :notifications, dependent: :destroy, foreign_key: :recipient_id
+  has_many :notifications, dependent: :destroy, foreign_key: :recipient_id
 
   after_destroy :clear_notifications
   after_commit :send_welcome_email, on: [:create]
 
   mount_uploader :avatar, AvatarUploader
 
-  #include UserFollowing
-  #include TagFollowing
-  #include SearchableUser
+  include UserFollowing
+  include TagFollowing
+  include SearchableUser
   #include OmniauthableUser
 
-  #extend FriendlyId
-  #friendly_id :username, use: [ :slugged, :finders ]
+  extend FriendlyId
+  friendly_id :username, use: [ :slugged, :finders ]
 
-  #def add_like_to(likeable_obj)
-  #  likes.where(likeable: likeable_obj).first_or_create
-  #end
+  def add_like_to(likeable_obj)
+    likes.where(likeable: likeable_obj).first_or_create
+  end
 
-  #def remove_like_from(likeable_obj)
-   # likes.where(likeable: likeable_obj).destroy_all
-  #end
+  def remove_like_from(likeable_obj)
+    likes.where(likeable: likeable_obj).destroy_all
+  end
 
-  #def liked?(likeable_obj)
-  #  send("liked_#{downcased_class_name(likeable_obj)}_ids").include?(likeable_obj.id)
-  #end
+  def liked?(likeable_obj)
+    send("liked_#{downcased_class_name(likeable_obj)}_ids").include?(likeable_obj.id)
+  end
 
-  #def add_bookmark_to(bookmarkable_obj)
-  #  bookmarks.where(bookmarkable: bookmarkable_obj).first_or_create
-  #end
+  def add_bookmark_to(bookmarkable_obj)
+    bookmarks.where(bookmarkable: bookmarkable_obj).first_or_create
+  end
 
-  #def remove_bookmark_from(bookmarkable_obj)
-  #  bookmarks.where(bookmarkable: bookmarkable_obj).destroy_all
-  #end
+  def remove_bookmark_from(bookmarkable_obj)
+    bookmarks.where(bookmarkable: bookmarkable_obj).destroy_all
+  end
 
-  #def bookmarked?(bookmarkable_obj)
-  #  send("bookmarked_#{downcased_class_name(bookmarkable_obj)}_ids").include?(bookmarkable_obj.id)
-  #end
+  def bookmarked?(bookmarkable_obj)
+    send("bookmarked_#{downcased_class_name(bookmarkable_obj)}_ids").include?(bookmarkable_obj.id)
+  end
 
   private
 

@@ -1,7 +1,7 @@
 class Dashboard
   attr_reader :user, :stories, :tag, :filter
 
-  def initialize(user: nil, posts: nil, tag: nil, filter: nil )
+  def initialize(user: nil, stories: nil, tag: nil, filter: nil )
     @user = user
     @stories = stories
     @tag = tag
@@ -20,7 +20,7 @@ class Dashboard
     Tag.all.limit(50)
   end
 
-  def top_aricles
+  def top_articles
     Storie.published.top_articles(5).includes(:user)
   end
 

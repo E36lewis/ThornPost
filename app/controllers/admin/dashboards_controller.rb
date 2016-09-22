@@ -2,7 +2,7 @@ class Admin::DashboardsController < ApplicationController
   before_action :authenticate_admin!
 
   def show
-    @dashboard = Dashboard.new(posts: all_stories)
+    @dashboard = Dashboard.new(stories: all_stories)
   end
 
   private

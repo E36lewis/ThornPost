@@ -4,9 +4,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 0.18.4'
 gem 'puma', '~> 3.0'
 gem 'devise'
+gem 'sinatra', require: false
 gem 'sidekiq'
 gem 'react-rails'
 gem 'omniauth-facebook'
