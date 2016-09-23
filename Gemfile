@@ -38,6 +38,7 @@ gem 'mini_magick', '3.8.0'
 gem 'fog',  '1.36.0'
 gem 'net-ssh'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'aws-sdk', '~> 2'
 
 group :production do
   gem 'rails_12factor', '0.0.2'
