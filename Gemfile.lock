@@ -71,6 +71,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
+    dalli (2.7.6)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -381,6 +382,7 @@ DEPENDENCIES
   byebug
   carrierwave (>= 1.0.0.beta, < 2.0)
   coffee-rails (~> 4.2)
+  dalli
   devise
   elasticsearch-model
   elasticsearch-rails
@@ -391,6 +393,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick (= 3.8.0)
   net-ssh
+  nokogiri (~> 1.6)
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter

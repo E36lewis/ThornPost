@@ -33,14 +33,21 @@ Rails.application.configure do
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
-
+  
+  # React configurations.
+  config.react.variant = :production
+  config.react.addons = true
+  config.react.server_renderer_options = {
+    files: ["components.js"], # files to load for prerendering
+  }
+  
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+   config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -50,7 +57,14 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store,
+                  (ENV["MEMCACHIER_SERVERS"] || "").split(","),
+                  {:username => ENV["MEMCACHIER_USERNAME"],
+                   :password => ENV["MEMCACHIER_PASSWORD"],
+                   :failover => true,
+                   :socket_timeout => 1.5,
+                   :socket_failure_delay => 0.2
+                  }
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
