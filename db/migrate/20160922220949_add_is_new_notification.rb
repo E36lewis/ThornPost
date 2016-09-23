@@ -1,0 +1,5 @@
+class AddIsNewNotification < ActiveRecord::Migration[5.0]
+  def change
+	add_column :notifications, :is_new, :boolean, default: false
+  end
+end

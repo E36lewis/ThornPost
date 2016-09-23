@@ -28,7 +28,7 @@ class User < ApplicationRecord
   include UserFollowing
   include TagFollowing
   include SearchableUser
-  #include OmniauthableUser
+  include OmniauthableUser
 
   extend FriendlyId
   friendly_id :username, use: [ :slugged, :finders ]

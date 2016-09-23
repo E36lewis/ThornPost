@@ -26,7 +26,7 @@ module OmniauthableUser
       user.update(
         username: auth.info.name,
         password: Devise.friendly_token[0, 20],
-        email: "#{SecureRandom.hex}#{auth.info.nickname}@mymediumclone.com" # Twitter does not provide email
+        email: "#{SecureRandom.hex}#{auth.info.nickname}@thornpost.com" # Twitter does not provide email
       )
       user
     end
