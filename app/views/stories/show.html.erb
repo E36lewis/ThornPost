@@ -55,18 +55,18 @@
 
     <% if user_signed_in? && current_user?(@storie.user) %>
       <div class="edit-delete-button-wrapper">
-        <%= link_to "Edit", edit_storie_path(@storie), class: 'button' %>
-        <%= link_to "Delete", storie_path(@storie), method: :delete, class: 'button' %>
+        <%= link_to "Edit", edit_story_path(@storie), class: 'button' %>
+        <%= link_to "Delete", story_path(@storie), method: :delete, class: 'button' %>
       </div>
     <% end %>
   </div>
 </div> 
 
-<div class="post-show-footer row" data-animation="fadeInUp-fadeOutDown">
+<div class="storie-show-footer row" data-animation="fadeInUp-fadeOutDown">
   <% if @related_.any? %>
     <div class="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3 main-content related-stories">
       <h4 class="small-heading">Related stories</h4>
-      <% @related_storie.each do |post| %>
+      <% @related_storie.each do |storie| %>
         <%= render partial: 'storie/storie_list_item', locals: { storie: @storie } %>
       <% end %>
     </div>
@@ -75,7 +75,7 @@
   <div id="responses" class="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3 main-content">
     <h4 class="small-heading">Responses</h4>
     <% if user_signed_in? %>
-      <%= render partial: 'posts/response_editor', locals: { post: @post } %>
+      <%= render partial: 'stories/response_editor', locals: { storie: @storie } %>
     <% end %>
 	<div data-behavior="responses-list">
       <% if @responses.any? %>

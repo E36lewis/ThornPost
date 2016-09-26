@@ -18,11 +18,11 @@
     </div>
   </div>
 
-  <div class="posts-wrapper" data-behavior="endless-scroll" data-animation="fadeInUp-fadeOutDown">
-    <%= render @dashboard.posts %>
+  <div class="stories-wrapper" data-behavior="endless-scroll" data-animation="fadeInUp-fadeOutDown">
+    <%= render @dashboard.stories %>
   </div>
 
-  <%= will_paginate @dashboard.posts %>
+  <%= will_paginate @dashboard.stories %>
 
 </div>
 

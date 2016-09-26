@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users, only: [:show, :edit, :update] do
-    resources :recommended_posts, only: [:index]
+    resources :recommended_stories, only: [:index]
   end
 
   resources :stories, except: [:index] do
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resource :dashboard, only: [:show]
     resources :featured_tags, only: [:create, :destroy]
-    resources :featured_posts, only: [:create, :destroy]
+    resources :featured_stories, only: [:create, :destroy]
   end
 
   namespace :api do

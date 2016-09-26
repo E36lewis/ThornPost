@@ -4,7 +4,7 @@
       <div class="feed-metadata">
         <%= icon('tag') %> <%= link_to feed.tag_for(storie).name, feed.tag_for(storie) %>
       </div>
-    <% elsif feed.recommended?(post) %>
+    <% elsif feed.recommended?(storie) %>
     <div class="feed-metadata">
       Recommended by <%= link_to feed.recommender_for(storie).username, feed.recommender_for(storie) %>
       <% if (storie.likes_count > 2) %>

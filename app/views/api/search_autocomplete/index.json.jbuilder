@@ -1,5 +1,5 @@
-json.posts do |json|
-  json.array! @posts do |storie|
+json.stories do |json|
+  json.array! @stories do |storie|
     json.id storie.id
     json.title truncate(storie.title, length: 38)
     json.avatar_url storie.user.avatar_url.present? ? storie.user.avatar_url : image_path('default-avatar.svg')

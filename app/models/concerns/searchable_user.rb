@@ -40,14 +40,14 @@ module SearchableUser
 
   def index_document
     ElasticsearchIndexJob.perform_later('index', 'User', self.id)
-    self.stories.find_each do |post|
+    self.stories.find_each do |storie|
       ElasticsearchIndexJob.perform_later('index', 'Storie', storie.id) if storie.published?
     end
   end
 
   def delete_document
     ElasticsearchIndexJob.perform_later('delete', 'User', self.id)
-    self.stories.find_each do |post|
+    self.stories.find_each do |storie|
       ElasticsearchIndexJob.perform_later('delete', 'Storie', storie.id) if storie.published?
     end
   end

@@ -17,7 +17,7 @@
       <h3 class="storie-title"><%= link_to storie.title, storie %></h3>
       <% if storie.lead %>
         <div class="storie-body"><%= truncate(storie.lead, length: 190, separator: ' ', escape: false) %></div>
-        <%= link_to "Read more", storie, class: 'read-more' %>
+        <%= link_to "Read more", storie_path, class: 'read-more' %>
       <% end %>
     </div>
 
@@ -32,7 +32,7 @@
 
       <div class="response-count pull-right">
         <% if storie.responses_count > 0 %>
-          <%= link_to (pluralize(storie.responses_count, "response")), storie_path(storie, anchor: 'responses'), class: 'response-count' %>
+          <%= link_to (pluralize(storie.responses_count, "response")), story_path(storie, anchor: 'responses'), class: 'response-count' %>
         <% end %>
       </div>
     </div>
