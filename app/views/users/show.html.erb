@@ -72,7 +72,7 @@
   <div class="banner-container" data-animation="fadeInUp-fadeOutDown">
     <div class="stories-wrapper">
       <h4 class="heading-border-b">Recommended by <%= @user.username %> &#149; 
-        <%= link_to "See all", user_recommended_posts_path(@user) %>
+        <%= link_to "See all", user_recommended_stories_path(@user) %>
       </h4>
       <div class="flex-container f-wrap">
         <% @recommended_stories.each do |storie| %>

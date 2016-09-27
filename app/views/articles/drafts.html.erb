@@ -18,7 +18,7 @@
       <div data-animation="fadeInUp-fadeOutDown">
         <% if @drafts.any? %>
           <% @drafts.each do |draft| %>
-            <div class="story-card" id="story_<%= draft.id %>">
+            <div class="storie-card" id="storie_<%= draft.id %>">
               <strong class="sc-title"><%= link_to (draft.title || "Untitled"), edit_story_path(draft) %></strong>
               <small class="sc-metadata">
                 Last edited <%= time_ago_in_words(draft.updated_at) %> ago &#149; 
