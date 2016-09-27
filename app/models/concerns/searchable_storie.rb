@@ -5,7 +5,7 @@ module SearchableStorie
 		include Elasticsearch::Model
 		
 		# Sync up Elasticsearch with PostgreSQL
-		after_commit :index_documen, on: [:create, :update]
+		after_commit :index_document, on: [:create, :update]
 		after_commit :delete_document, on: [:destroy]
 		
 		settings INDEX_OPTIONS do
