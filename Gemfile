@@ -9,6 +9,7 @@ gem 'puma', '~> 3.0'
 gem 'sinatra', require: false
 gem 'sidekiq'
 gem 'react-rails'
+gem 'redis', '~> 3.0'
 
 gem 'devise'
 gem 'omniauth-facebook'
@@ -22,7 +23,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-# gem 'redis', '~> 3.0'
+
 # gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate', '~> 3.1.0'
 
