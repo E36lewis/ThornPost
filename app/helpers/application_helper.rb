@@ -28,9 +28,9 @@ module ApplicationHelper
 
   def feature_storie_button_for(storie)
     if storie.featured?
-      render partial: 'admin/unfeature_storie_button', locals: { post: storie }
+      render partial: 'admin/unfeature_storie_button', locals: { storie: storie }
     else
-      render partial: 'admin/feature_storie_button', locals: { post: storie }
+      render partial: 'admin/feature_storie_button', locals: { storie: storie }
     end
   end
 
