@@ -40,7 +40,7 @@ class Storie < ApplicationRecord
   end
 
   def self.tagged_with(name)
-    Tag.find_by!(name: name).posts
+    Tag.find_by!(name: name).stories
   end
 
   def related_stories(size: 3)

@@ -11,11 +11,11 @@ class User < ApplicationRecord
   has_many :stories, dependent: :destroy
   has_many :responses, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :liked_posts, through: :likes, source: :likeable, source_type: "Post"
+  has_many :liked_stories, through: :likes, source: :likeable, source_type: "Storie"
   has_many :liked_responses, through: :likes, source: :likeable, source_type: "Response"
 
   has_many :bookmarks, dependent: :destroy
-  has_many :bookmarked_posts, through: :bookmarks, source: :bookmarkable, source_type: "Post"
+  has_many :bookmarked_stories, through: :bookmarks, source: :bookmarkable, source_type: "Storie"
   has_many :bookmarked_responses, through: :bookmarks, source: :bookmarkable, source_type: "Response"
 
   has_many :notifications, dependent: :destroy, foreign_key: :recipient_id
