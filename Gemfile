@@ -9,7 +9,7 @@ gem 'puma', '~> 3.0'
 gem 'sinatra', require: false
 gem 'sidekiq'
 gem 'react-rails'
-gem 'redis', '~> 3.0'
+#gem 'redis', '~> 3.0'
 
 gem 'devise'
 gem 'omniauth-facebook'
