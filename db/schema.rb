@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922220949) do
+ActiveRecord::Schema.define(version: 20160928195446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,12 +91,12 @@ ActiveRecord::Schema.define(version: 20160922220949) do
 
   create_table "responses", force: :cascade do |t|
     t.text     "body"
-    t.integer  "stories_id"
+    t.integer  "storie_id"
     t.integer  "user_id"
     t.integer  "likes_count", default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.index ["stories_id"], name: "index_responses_on_stories_id", using: :btree
+    t.index ["storie_id"], name: "index_responses_on_storie_id", using: :btree
     t.index ["user_id"], name: "index_responses_on_user_id", using: :btree
   end
 
@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(version: 20160922220949) do
   end
 
   add_foreign_key "bookmarks", "users"
-  add_foreign_key "responses", "stories", column: "stories_id"
+  add_foreign_key "responses", "stories", column: "storie_id"
   add_foreign_key "responses", "users"
   add_foreign_key "stories", "users"
   add_foreign_key "taggings", "stories", column: "storie_id"
