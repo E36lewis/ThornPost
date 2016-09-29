@@ -56,7 +56,7 @@ class Feed
      end
 
      def tagged_story_ids
-       @_tagged_story_ids ||= Tagging.where(tag_id: user.following_tag_ids).distinct.pluck(:post_id)
+       @_tagged_story_ids ||= Tagging.where(tag_id: user.following_tag_ids).distinct.pluck(:story_id)
      end
 
      def featured_story_ids
