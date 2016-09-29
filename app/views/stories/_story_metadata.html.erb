@@ -1,0 +1,7 @@
+<div class="story-metadata">
+  <%= avatar_for story.user, size: 40 %>
+  <div class="story-info">
+    <%= react_component("PopoverLink", { user_id: story.user.id, url: user_path(story.user), children: story.username }) %>
+    <small><%= time_ago_in_words(story.created_at) %> ago &#149; <%= story_length_in_minutes(story.body) %></small>
+  </div>
+</div>

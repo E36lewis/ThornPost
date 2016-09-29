@@ -1,21 +1,21 @@
-<% feed.stories.each do |storie| %>
+<% feed.stories.each do |story| %>
   <div class="feed-panel">
-    <% if feed.tagged?(storie) %>
+    <% if feed.tagged?(story) %>
       <div class="feed-metadata">
-        <%= icon('tag') %> <%= link_to feed.tag_for(storie).name, feed.tag_for(storie) %>
+        <%= icon('tag') %> <%= link_to feed.tag_for(story).name, feed.tag_for(story) %>
       </div>
-    <% elsif feed.recommended?(storie) %>
+    <% elsif feed.recommended?(story) %>
     <div class="feed-metadata">
-      Recommended by <%= link_to feed.recommender_for(storie).username, feed.recommender_for(storie) %>
-      <% if (storie.likes_count > 2) %>
-        and <%= pluralize(storie.likes.count - 1, 'other') %>
+      Recommended by <%= link_to feed.recommender_for(story).username, feed.recommender_for(story) %>
+      <% if (story.likes_count > 2) %>
+        and <%= pluralize(story.likes.count - 1, 'other') %>
       <% end %>
     </div>
-    <% elsif feed.featured?(storie) %>
+    <% elsif feed.featured?(story) %>
       <div class="feed-metadata">
-        Featured by Articles Staff and recommended by <%= pluralize(storie.likes_count, 'other') %>
+        Featured by Articles Staff and recommended by <%= pluralize(story.likes_count, 'other') %>
       </div>
     <% end %>
-    <%= render partial: 'stories/storie', locals: { storie: storie } %>
+    <%= render partial: 'stories/story', locals: { story: story } %>
   </div>
 <% end %>

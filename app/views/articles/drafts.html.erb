@@ -18,12 +18,12 @@
       <div data-animation="fadeInUp-fadeOutDown">
         <% if @drafts.any? %>
           <% @drafts.each do |draft| %>
-            <div class="storie-card" id="storie_<%= draft.id %>">
+            <div class="story-card" id="story_<%= draft.id %>">
               <strong class="sc-title"><%= link_to (draft.title || "Untitled"), edit_story_path(draft) %></strong>
               <small class="sc-metadata">
                 Last edited <%= time_ago_in_words(draft.updated_at) %> ago &#149; 
                 <% if draft.body.present? %>
-                  <%= storie_length_in_minutes(draft.body) %> 
+                  <%= story_length_in_minutes(draft.body) %> 
                   (<%= pluralize(draft.word_count, 'word') %>) so far &#149;
                 <% end %>
                 <div class="btn-group">

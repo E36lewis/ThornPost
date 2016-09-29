@@ -1,9 +1,9 @@
 json.stories do |json|
-  json.array! @stories do |storie|
-    json.id storie.id
-    json.title truncate(storie.title, length: 38)
-    json.avatar_url storie.user.avatar_url.present? ? storie.user.avatar_url : image_path('default-avatar.svg')
-    json.url storie_path(storie.slug)
+  json.array! @stories do |story|
+    json.id story.id
+    json.title truncate(story.title, length: 38)
+    json.avatar_url story.user.avatar_url.present? ? story.user.avatar_url : image_path('default-avatar.svg')
+    json.url story_path(story.slug)
   end
 end
 

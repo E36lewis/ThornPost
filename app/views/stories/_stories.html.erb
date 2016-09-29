@@ -1,32 +1,32 @@
-<div class="storie-panel">
-  <%= render partial: 'stories/storie_metadata', locals: { storie: storie } %>
+<div class="story-panel">
+  <%= render partial: 'stories/story_metadata', locals: { story: story } %>
 
-  <% if storie.picture? %>
+  <% if story.picture? %>
     <div class="storie-picture-wrapper">
       <%= image_tag storie.picture.url(:thumb) %>
     </div>
   <% end %>
 
   <div class="main-body">
-    <h3 class="storie-title"><%= link_to storie.title, storie %></h3>
-    <% if storie.lead %>
-      <div class="storie-body"><%= truncate(remove_javascript(storie.lead), length: 140, separator: ' ', escape: false) %></div>
-      <%= link_to "Read more", storie, class: 'read-more' %>
+    <h3 class="story-title"><%= link_to story.title, story %></h3>
+    <% if story.lead %>
+      <div class="story-body"><%= truncate(remove_javascript(story.lead), length: 140, separator: ' ', escape: false) %></div>
+      <%= link_to "Read more", story, class: 'read-more' %>
     <% end %>
   </div>
 
-  <div class="storie-stats clearfix">
+  <div class="story-stats clearfix">
     <div class="pull-left">
-      <%= render partial: 'stories/likes', locals: { storie: storie } %>
+      <%= render partial: 'stories/likes', locals: { story: story } %>
     </div>
 
     <div class="pull-right">
-      <%= render partial: 'stories/bookmarks', locals: { storie: storie } %>
+      <%= render partial: 'stories/bookmarks', locals: { story: story } %>
     </div>
 
     <div class="response-count pull-right">
-      <% if storie.responses_count > 0 %>
-        <%= link_to (pluralize(storie.responses_count, "response")), story_path(storie, anchor: 'responses'), class: 'response-count' %>
+      <% if story.responses_count > 0 %>
+        <%= link_to (pluralize(story.responses_count, "response")), story_path(story, anchor: 'responses'), class: 'response-count' %>
       <% end %>
     </div>
   </div>

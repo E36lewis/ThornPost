@@ -75,10 +75,10 @@
         <%= link_to "See all", user_recommended_stories_path(@user) %>
       </h4>
       <div class="flex-container f-wrap">
-        <% @recommended_stories.each do |storie| %>
-        <div class="recommended-storie-card">
-          <%= link_to storie.title, storie, class: "rpc-title" %><br/>
-          <small class="rpc-username"><%= storie.username %></small>
+        <% @recommended_stories.each do |story| %>
+        <div class="recommended-story-card">
+          <%= link_to story.title, story, class: "rpc-title" %><br/>
+          <small class="rpc-username"><%= story.username %></small>
         </div>
         <% end %>
       </div>

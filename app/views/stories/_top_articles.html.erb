@@ -1,38 +1,38 @@
-<% stories.each_with_index do |storie, index| %>
-  <div class="storie-panel">
+<% stories.each_with_index do |story, index| %>
+  <div class="story-panel">
     <div class="top-article-rank">
       <div class="count-button-wrapper">
         <span class="count-button"><%= index + 1 %></span>
       </div>
     </div>
-    <%= render partial: 'stories/storie_metadata', locals: { storie: storie } %>
+    <%= render partial: 'stories/story_metadata', locals: { story: story } %>
 
-    <% if storie.picture? %>
-      <div class="storie-picture-wrapper">
-        <%= image_tag storie.picture.url(:thumb) %>
+    <% if story.picture? %>
+      <div class="story-picture-wrapper">
+        <%= image_tag story.picture.url(:thumb) %>
       </div>
     <% end %>
 
     <div class="main-body">
-      <h3 class="storie-title"><%= link_to storie.title, storie %></h3>
-      <% if storie.lead %>
-        <div class="storie-body"><%= truncate(storie.lead, length: 190, separator: ' ', escape: false) %></div>
-        <%= link_to "Read more", storie_path, class: 'read-more' %>
+      <h3 class="story-title"><%= link_to story.title, story %></h3>
+      <% if story.lead %>
+        <div class="story-body"><%= truncate(story.lead, length: 190, separator: ' ', escape: false) %></div>
+        <%= link_to "Read more", story_path, class: 'read-more' %>
       <% end %>
     </div>
 
-    <div class="storie-stats clearfix">
-      <div id="storie_<%= storie.id %>_likes" class="pull-left">
-        <%= render partial: 'stories/likes', locals: { storie: storie } %>
+    <div class="story-stats clearfix">
+      <div id="story_<%= story.id %>_likes" class="pull-left">
+        <%= render partial: 'stories/likes', locals: { story: story } %>
       </div>
 
-      <div id="storie_<%= storie.id %>_bookmarks" class="pull-right">
-        <%= render partial: 'stories/bookmarks', locals: { storie: storie } %>
+      <div id="story_<%= story.id %>_bookmarks" class="pull-right">
+        <%= render partial: 'stories/bookmarks', locals: { story: story } %>
       </div>
 
       <div class="response-count pull-right">
-        <% if storie.responses_count > 0 %>
-          <%= link_to (pluralize(storie.responses_count, "response")), story_path(storie, anchor: 'responses'), class: 'response-count' %>
+        <% if story.responses_count > 0 %>
+          <%= link_to (pluralize(story.responses_count, "response")), story_path(storie, anchor: 'responses'), class: 'response-count' %>
         <% end %>
       </div>
     </div>

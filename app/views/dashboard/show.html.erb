@@ -41,15 +41,15 @@
       <h4 class="small-heading border-top">Top stories</h4>
       <div class="sidebar-top-stories">
         <ul>
-          <% @dashboard.top_articles.each_with_index do |storie, index| %>
+          <% @dashboard.top_articles.each_with_index do |story, index| %>
             <li class="top-articles-list-item">
               <div class="count-button-wrapper">
                 <span class="count-button"><%= index + 1 %></span>
               </div>
               <div class="top-articles-links">
-                <%= link_to storie.title, storie, class: 'storie-title' %><br/>
+                <%= link_to story.title, story, class: 'story-title' %><br/>
                 <small>
-                  <%= react_component("PopoverLink", { user_id: storie.user.id, url: user_path(storie.user), children: storie.username }) %>
+                  <%= react_component("PopoverLink", { user_id: story.user.id, url: user_path(story.user), children: story.username }) %>
                 </small>
               </div>
             </li>

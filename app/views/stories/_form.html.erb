@@ -1,4 +1,4 @@
-<%= form_for storie, html: { multipart: true, class: "editor-form", data: { page: 'main-editor' }, autocomplete: "off" } do |f| %>
+<%= form_for story, html: { multipart: true, class: "editor-form", data: { page: 'main-editor' }, autocomplete: "off" } do |f| %>
 
   <label class="picture_upload">
     <%= f.file_field :picture %>
@@ -7,9 +7,9 @@
   <div class="file-upload-previewer hidden">
     <img src="" id="image_preview"/>
   </div>
-  <% if storie.picture? %>
+  <% if story.picture? %>
     <div class="existing-img-previewer" id="existing-img-previewer">
-      <%= image_tag storie.picture.url(:thumb) %>
+      <%= image_tag story.picture.url(:thumb) %>
     </div>
   <% end %>
 

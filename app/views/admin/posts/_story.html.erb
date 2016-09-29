@@ -1,0 +1,15 @@
+<div class="story-panel">
+  <%= render partial: 'stories/story_metadata', locals: { story: story } %>
+
+  <% if story.picture? %>
+    <div class="story-picture-wrapper">
+      <%= image_tag story.picture.url(:thumb) %>
+    </div>
+  <% end %>
+
+  <div class="main-body">
+    <h3 class="story-title"><%= link_to story.title, story %></h3>
+    <div class="story-body"><%= truncate(story.body, length: 120) { link_to "Read more ...", story, class: 'read-more' } %></div>
+  </div>
+
+</div>

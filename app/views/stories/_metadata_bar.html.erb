@@ -1,25 +1,25 @@
-<div class="storie-metadata-bar" data-page="storie-metadata-bar">
+<div class="story-metadata-bar" data-page="story-metadata-bar">
   <div class="flex-container" data-behavior="animated-metadata">
-    <div class="storie-stats flex-container">
-      <%= render partial: 'stories/likes', locals: { storie: storie } %>
+    <div class="story-stats flex-container">
+      <%= render partial: 'stories/likes', locals: { story: story } %>
 
       <div>
-        <%= link_to story_path(storie, anchor: 'responses'), class: "response-icon-wrapper" do %>
+        <%= link_to story_path(story, anchor: 'responses'), class: "response-icon-wrapper" do %>
           <i class="fa fa-comment-o"></i>
-          <span class="response-count" data-behavior="response-count"><%= storie.responses.size %></span>
+          <span class="response-count" data-behavior="response-count"><%= story.responses.size %></span>
         <% end %>
       </div>
 
       <div class="bookmark-button">
-        <%= render partial: 'stories/bookmarks', locals: { storie: storie } %>
+        <%= render partial: 'stories/bookmarks', locals: { story: story } %>
       </div>
     </div>
     <div class="metabar-author-info flex-container flex-space-btw">
       <div>
-        <%= avatar_for storie.user, size: 35 %>
-        <%= react_component("PopoverLink", { user_id: storie.user.id, url: user_path(storie.user), children: storie.username }) %>
+        <%= avatar_for story.user, size: 35 %>
+        <%= react_component("PopoverLink", { user_id: story.user.id, url: user_path(story.user), children: story.username }) %>
       </div>
-      <%= follow_button_for storie.user %>
+      <%= follow_button_for story.user %>
     </div>
   </div>
 </div>

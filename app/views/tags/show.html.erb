@@ -51,9 +51,9 @@
                 <span class="count-button"><%= index + 1 %></span>
               </div>
               <div class="top-articles-links">
-                <%= link_to storie.title, storie, class: 'storie-title' %><br/>
+                <%= link_to story.title, story, class: 'story-title' %><br/>
                 <small>
-                  <%= react_component("PopoverLink", { user_id: storie.user.id, url: user_path(storie.user), children: storie.username }) %>
+                  <%= react_component("PopoverLink", { user_id: story.user.id, url: user_path(story.user), children: story.username }) %>
                 </small>
               </div>
             </li>

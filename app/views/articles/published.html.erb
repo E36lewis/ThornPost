@@ -17,10 +17,10 @@
 
       <div data-animation="fadeInUp-fadeOutDown">
         <% if @stories.any? %>
-          <% @stories.each do |storie| %>
-            <div class="article-card" id="article_<%= storie.id %>">
+          <% @stories.each do |story| %>
+            <div class="article-card" id="article_<%= story.id %>">
               <strong class="sc-title"><%= link_to storie.title, edit_story_path(storie) %></strong>
-              <small class="sc-metadata">Published <%= time_ago_in_words(storie.published_at) %> ago &#149; <%= storie_length_in_minutes(storie.body) %>
+              <small class="sc-metadata">Published <%= time_ago_in_words(storie.published_at) %> ago &#149; <%= story_length_in_minutes(story.body) %>
                 <div class="btn-group">
                   <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="glyphicon glyphicon-chevron-down"></span>
