@@ -1,4 +1,4 @@
-class Storie < ApplicationRecord
+class Story < ApplicationRecord
 
   validates :title, :body, :user_id, presence: true
 
