@@ -2,23 +2,23 @@ class API::StoriesController < ApplicationController
   before_action :authenticate_user!
 
   def update
-    @storie = current_user.stories.find(params[:id])
-    @storie.assign_attributes(storie_params)
-    if @storie.published?
-      @storie.save
+    @story = current_user.stories.find(params[:id])
+    @story.assign_attributes(story_params)
+    if @story.published?
+      @story.save
     else
-      @storie.save_as_draft
+      @story.save_as_draft
     end
   end
 
   def destroy
-    @storie = current_user.stories.find(params[:id])
-    @storie.destroy
+    @story = current_user.stories.find(params[:id])
+    @story.destroy
   end
 
   private
 
-    def storie_params
-      params.require(:storie).permit(:title, :body, :all_tags, :picture)
+    def story_params
+      params.require(:story).permit(:title, :body, :all_tags, :picture)
     end
 end

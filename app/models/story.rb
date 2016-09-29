@@ -28,15 +28,15 @@ class Story < ApplicationRecord
   # will_pagination configuration
   self.per_page = 5
 
-  include SearchableStorie
+  include SearchableStory
 
   extend FriendlyId
   friendly_id :title, use: [ :slugged, :history, :finders ]
 
   def self.new_draft_for(user)
-    storie = self.new(user_id: user.id)
-    storie.save_as_draft
-    storie
+    story = self.new(user_id: user.id)
+    story.save_as_draft
+    story
   end
 
   def self.tagged_with(name)
@@ -44,7 +44,7 @@ class Story < ApplicationRecord
   end
 
   def related_stories(size: 3)
-    Storie.joins(:taggings).where.not(id: self.id).where(taggings: { tag_id: self.tag_ids }).distinct.
+    Story.joins(:taggings).where.not(id: self.id).where(taggings: { tag_id: self.tag_ids }).distinct.
       published.limit(size).includes(:user)
   end
 
@@ -91,13 +91,13 @@ class Story < ApplicationRecord
   # FIXME: this method needs refactoring or completely different approach
   def generate_lead!
     if self.published?
-      storie_body = Nokogiri::HTML::Document.parse(self.body)
-      if storie_body.css('h2').size > 0
-        self.lead = storie_body.css('h2')[0].to_s
-      elsif storie_body.css('h3').size > 0
-        self.lead = storie_body.css('h3')[0].to_s
-      elsif storie_body.css('p').size > 0
-        self.lead = storie_body.css('p')[0].to_s
+      story_body = Nokogiri::HTML::Document.parse(self.body)
+      if story_body.css('h2').size > 0
+        self.lead = story_body.css('h2')[0].to_s
+      elsif story_body.css('h3').size > 0
+        self.lead = story_body.css('h3')[0].to_s
+      elsif story_body.css('p').size > 0
+        self.lead = story_body.css('p')[0].to_s
       end
     end
   end

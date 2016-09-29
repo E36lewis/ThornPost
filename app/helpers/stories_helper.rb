@@ -1,5 +1,5 @@
 module StoriesHelper
-  def storie_length_in_minutes(body)
+  def story_length_in_minutes(body)
     min = body.split(" ").size / 250
     if min == 0
       'less than a minute read'

@@ -9,11 +9,11 @@ namespace :slug do
       end
     end
 
-    Storie.find_each do |storie|
-      if storie.published?
-        storie.publish
+    Story.find_each do |story|
+      if story.published?
+        story.publish
       else
-        storie.save_as_draft
+        story.save_as_draft
       end
     end
   end

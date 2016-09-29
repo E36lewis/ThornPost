@@ -2,18 +2,18 @@ class Admin::FeaturedStoriesController < ApplicationController
   before_action :authenticate_admin!
 
   def create
-    storie.update(featured: true)
-    redirect_to storie
+    story.update(featured: true)
+    redirect_to story
   end
 
   def destroy
-    storie.update(featured: false)
-    redirect_to storie
+    story.update(featured: false)
+    redirect_to story
   end
 
   private
 
     def storie
-      @_storie ||= Storie.find(params[:storie_id])
+      @_story ||= Story.find(params[:story_id])
     end
 end

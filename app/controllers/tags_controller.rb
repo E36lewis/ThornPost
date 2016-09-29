@@ -13,6 +13,6 @@ class TagsController < ApplicationController
     end
 
     def tagged_stories
-      @_tagged_stories ||= Storie.tagged_with(@tag.name).published.includes(:user).paginate(page: params[:page])
+      @_tagged_stories ||= Story.tagged_with(@tag.name).published.includes(:user).paginate(page: params[:page])
     end
 end

@@ -1,4 +1,4 @@
-module SearchableStorie
+module SearchableStory
 	extend ActiveSupport::Concern
 	
 	included do
@@ -58,11 +58,11 @@ module SearchableStorie
   end
 
   def index_document
-    ElasticsearchIndexJob.perform_later('index', 'Storie', self.id) if self.published?
+    ElasticsearchIndexJob.perform_later('index', 'Story', self.id) if self.published?
   end
 
   def delete_document
-    ElasticsearchIndexJob.perform_later('delete', 'Storie', self.id) if self.published?
+    ElasticsearchIndexJob.perform_later('delete', 'Story', self.id) if self.published?
   end
 
   INDEX_OPTIONS =

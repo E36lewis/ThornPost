@@ -5,7 +5,7 @@ class ElasticsearchIndexJob < ApplicationJob
     if operation =~ /index|delete/
       self.send(operation, searchable_class, searchable_id)
     else
-      logger.warn "StorieIndexJob cannot process #{operation}"
+      logger.warn "StoryIndexJob cannot process #{operation}"
     end
   end
 

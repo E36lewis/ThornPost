@@ -5,27 +5,27 @@ class StoriesController < ApplicationController
    layout "editor", only: [:new, :edit, :create, :update]
    
   def show
-    @storie = Storie.find(params[:id])
-    @responses = @storie.responses.includes(:user)
-    @related_stories = @storie.related_stories
+    @story = Story.find(params[:id])
+    @responses = @story.responses.includes(:user)
+    @related_stories = @story.related_stories
     # If an old id or a numeric id was used to find the record, then
     # the request path will not match the post_path, and we should do
     # a 301 redirect that uses the current friendly id.
-    if request.path != storie_path(@storie)
-      redirect_to @storie, status: 301
+    if request.path != story_path(@story)
+      redirect_to @story, status: 301
     end
   end
 
   def new
-    @storie = Storie.new_draft_for(current_user)
+    @story = Story.new_draft_for(current_user)
   end
 
   def create
-    @storie = current_user.stories.build(storie_params)
-    if @storie.publish
-      redirect_to @storie, notice: "Successfully published the post!"
+    @story = current_user.stories.build(story_params)
+    if @story.publish
+      redirect_to @story, notice: "Successfully published the post!"
     else
-      @storie.unpublish
+      @story.unpublish
       flash.now[:alert] = "Could not update the post, Please try again"
       render :new
     end
@@ -35,37 +35,37 @@ class StoriesController < ApplicationController
   end
 
   def update
-    @storie.assign_attributes(storie_params)
-    if @storie.publish
-      redirect_to @storie, notice: "Successfully published the storie!"
+    @story.assign_attributes(story_params)
+    if @story.publish
+      redirect_to @story, notice: "Successfully published the storie!"
     else
-      @storie.unpublish
+      @story.unpublish
       flash.now[:alert] = "Could not update the storie, Please try again"
       render :edit
     end
   end
 
   def destroy
-    @storie.destroy
+    @story.destroy
     redirect_to root_url, notice: "Successfully deleted the storie"
   end
 
   # TODO: ideally move this to a separate controller?
   def create_and_edit
-    @storie = current_user.stories.build(storie_params)
-    @storie.save_as_draft
-    redirect_to edit_storie_url(@storie)
+    @story = current_user.stories.build(story_params)
+    @story.save_as_draft
+    redirect_to edit_storie_url(@story)
   end
   
     private
 
-    def storie_params
-      params.require(:storie).permit(:title, :body, :all_tags, :picture)
+    def story_params
+      params.require(:story).permit(:title, :body, :all_tags, :picture)
     end
 
     def authorize_user
       begin
-        @storie = current_user.stories.find(params[:id])
+        @story = current_user.stories.find(params[:id])
       rescue
         redirect_to root_url
       end

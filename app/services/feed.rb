@@ -16,32 +16,32 @@ class Feed
   end
 
   def stories
-    Storie.recent.where(id: feed_storie_ids).published.includes(:user).paginate(page: page)
+    Story.recent.where(id: feed_story_ids).published.includes(:user).paginate(page: page)
   end
 
-  def tagged?(storie)
-    tagged_storie_ids.include?(storie.id)
+  def tagged?(story)
+    tagged_story_ids.include?(story.id)
   end
 
-  def following_author?(storie)
-    following_users_storie_ids.include?(storie.id)
+  def following_author?(story)
+    following_users_story_ids.include?(story.id)
   end
 
-  def recommended?(storie)
-    recommended_storie_ids.include?(storie.id)
+  def recommended?(story)
+    recommended_story_ids.include?(story.id)
   end
 
-  def featured?(storie)
-    featured_storie_ids.include?(storie.id)
+  def featured?(story)
+    featured_story_ids.include?(story.id)
   end
 
-  def tag_for(storie)
-    tag_id = user.following_tag_ids.select { |id| storie.tag_ids.include?(id) }.first
+  def tag_for(story)
+    tag_id = user.following_tag_ids.select { |id| story.tag_ids.include?(id) }.first
     Tag.find_by(id: tag_id)
   end
 
-  def recommender_for(storie)
-    user_id = user.following_ids.select { |id| storie.liker_ids.include?(id) }.first
+  def recommender_for(story)
+    user_id = user.following_ids.select { |id| story.liker_ids.include?(id) }.first
     User.find_by(id: user_id)
   end
 
@@ -51,23 +51,23 @@ class Feed
        @_user_ids ||= user.following_ids + [user.id]
      end
 
-     def following_users_storie_ids
-       @_following_users_storie_ids ||= Storie.where(user_id: user.following_ids).pluck(:id)
+     def following_users_story_ids
+       @_following_users_story_ids ||= Story.where(user_id: user.following_ids).pluck(:id)
      end
 
-     def tagged_storie_ids
-       @_tagged_storie_ids ||= Tagging.where(tag_id: user.following_tag_ids).distinct.pluck(:post_id)
+     def tagged_story_ids
+       @_tagged_story_ids ||= Tagging.where(tag_id: user.following_tag_ids).distinct.pluck(:post_id)
      end
 
-     def featured_storie_ids
-       @_featured_storie_ids ||= Storie.where(featured: true).pluck(:id)
+     def featured_story_ids
+       @_featured_story_ids ||= Story.where(featured: true).pluck(:id)
      end
 
-     def feed_storie_ids
-       @_feed_storie_ids ||= (Storie.where(user_id: user_ids).pluck(:id) + tagged_storie_ids + recommended_storie_ids + featured_storie_ids).uniq
+     def feed_story_ids
+       @_feed_story_ids ||= (Story.where(user_id: user_ids).pluck(:id) + tagged_story_ids + recommended_story_ids + featured_story_ids).uniq
      end
 
-     def recommended_storie_ids
-       @_recommended_storie_ids ||= Storie.joins(:likes).where(likes: { user_id: user.following_ids }).distinct.pluck(:id)
+     def recommended_story_ids
+       @_recommended_story_ids ||= Story.joins(:likes).where(likes: { user_id: user.following_ids }).distinct.pluck(:id)
      end
 end

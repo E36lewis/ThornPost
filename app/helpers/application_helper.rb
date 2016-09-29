@@ -26,11 +26,11 @@ module ApplicationHelper
     end
   end
 
-  def feature_storie_button_for(storie)
-    if storie.featured?
-      render partial: 'admin/unfeature_storie_button', locals: { storie: storie }
+  def feature_story_button_for(story)
+    if story.featured?
+      render partial: 'admin/unfeature_story_button', locals: { story: story }
     else
-      render partial: 'admin/feature_storie_button', locals: { storie: storie }
+      render partial: 'admin/feature_story_button', locals: { story: story }
     end
   end
 

@@ -21,10 +21,10 @@ class Dashboard
   end
 
   def top_articles
-    Storie.published.top_articles(5).includes(:user)
+    Story.published.top_articles(5).includes(:user)
   end
 
-  def new_storie
+  def new_story
     @user.stories.new
   end
 

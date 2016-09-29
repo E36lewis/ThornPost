@@ -3,8 +3,8 @@ class SearchController < ApplicationController
   layout "simple"
 
   def show
-    @storie_records = Storie.search(query_term).paginate(page: params[:page]).records
-    @stories = @storie_records.to_a.select { |storie| storie.published? }
+    @story_records = Story.search(query_term).paginate(page: params[:page]).records
+    @stories = @story_records.to_a.select { |story| story.published? }
     @users = User.search(query_term).records.to_a
     @tags = Tag.search(query_term).records
   end

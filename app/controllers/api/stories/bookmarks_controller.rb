@@ -3,6 +3,6 @@ class API::Stories::BookmarksController < API::BookmarksController
   private
 
     def set_bookmarkable
-      @bookmarkable = Storie.find(params[:storie_id])
+      @bookmarkable = Story.find(params[:story_id])
     end
 end

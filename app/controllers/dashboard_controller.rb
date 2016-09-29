@@ -45,14 +45,14 @@ class DashboardController < ApplicationController
     end
 
     def top_stories
-      Storie.published.top_articles(5).includes(:user)
+      Story.published.top_articles(5).includes(:user)
     end
 
     def recent_stories
-      Storie.published.recent.includes(:user).paginate(page: params[:page])
+      Story.published.recent.includes(:user).paginate(page: params[:page])
     end
 
     def featured_stories
-      Storie.recent.featured.includes(:user).paginate(page: params[:page])
+      Story.recent.featured.includes(:user).paginate(page: params[:page])
     end
 end

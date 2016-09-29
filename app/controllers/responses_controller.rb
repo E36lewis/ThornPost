@@ -2,12 +2,12 @@ class ResponsesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @storie = Storie.find(params[:storie_id])
-    @response = current_user.responses.create(body: params[:response][:body], storie_id: @storie.id)
+    @story = Story.find(params[:story_id])
+    @response = current_user.responses.create(body: params[:response][:body], story_id: @story.id)
     if @response.valid?
       notify_author_and_responders
       respond_to do |format|
-        format.html { redirect_to @storie }
+        format.html { redirect_to @story }
         format.js
       end
     else
@@ -19,11 +19,11 @@ class ResponsesController < ApplicationController
   private
 
     def notify_author_and_responders
-      (@storie.responders.uniq - [current_user]).each do |user|
-        Notification.create(recipient: user, actor: current_user, action: "also commented on a", notifiable: @storie, is_new: true)
+      (@story.responders.uniq - [current_user]).each do |user|
+        Notification.create(recipient: user, actor: current_user, action: "also commented on a", notifiable: @story, is_new: true)
       end
-      unless current_user?(@storie.user) || @storie.responders.include?(@storie.user)
-        Notification.create(recipient: @storie.user, actor: current_user, action: "responded to your", notifiable: @storie, is_new: true)
+      unless current_user?(@story.user) || @story.responders.include?(@story.user)
+        Notification.create(recipient: @story.user, actor: current_user, action: "responded to your", notifiable: @story, is_new: true)
       end
     end
 end

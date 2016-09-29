@@ -8,6 +8,6 @@ class Admin::DashboardsController < ApplicationController
   private
 
     def all_stories
-      Storie.published
+      Story.published
     end
 end
