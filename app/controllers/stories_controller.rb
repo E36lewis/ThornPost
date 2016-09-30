@@ -54,7 +54,7 @@ class StoriesController < ApplicationController
   def create_and_edit
     @story = current_user.stories.build(story_params)
     @story.save_as_draft
-    redirect_to edit_storie_url(@story)
+    redirect_to edit_story_url(@story)
   end
   
     private
