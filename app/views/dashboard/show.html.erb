@@ -10,7 +10,7 @@
       <%= render @dashboard.stories %>
     </div>
   <% else %>
-    <div class="posts-wrapper" data-animation="fadeInUp-fadeOutDown">
+    <div class="stories-wrapper" data-animation="fadeInUp-fadeOutDown">
       <%= render 'stories/top_articles', stories: @dashboard.stories %>
     </div>
   <% end %>
