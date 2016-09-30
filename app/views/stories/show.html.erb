@@ -5,9 +5,9 @@
     <% end %>
 
     <div class="pull-right">
-      <%= render partial: 'storie/social_share', locals: { story: @story } %>
+      <%= render partial: 'stories/social_share', locals: { story: @story } %>
     </div>
-    <%= render 'storie_metadata', storie: @story %>
+    <%= render 'story_metadata', story: @story %>
 
     <% if @article.picture? %>
       <div class="story-picture-wrapper">
@@ -28,7 +28,7 @@
 
     <div class="story-stats clearfix">
       <div class="pull-left">
-        <%= render partial: 'storie/likes', locals: { story: @story } %>
+        <%= render partial: 'stories/likes', locals: { story: @story } %>
       </div>
       <div class="pull-left">
         <%= link_to story_path(@story, anchor: 'responses'), class: "response-icon-wrapper" do %>
@@ -38,13 +38,13 @@
       </div>
 
       <div class="pull-right">
-        <%= render partial: 'storie/bookmarks', locals: { story: @story } %>
+        <%= render partial: 'stories/bookmarks', locals: { story: @story } %>
       </div>
     </div>
 
     <div class="author-info">
       <div clas="author-metadata">
-        <%= avatar_for @storie.user, size: 50 %>
+        <%= avatar_for @story.user, size: 50 %>
         <div class="username-description">
           <h4><%= @story.user.username %></h4>
           <p><%= @story.user.description %></p>
@@ -67,7 +67,7 @@
     <div class="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3 main-content related-stories">
       <h4 class="small-heading">Related stories</h4>
       <% @related_story.each do |story| %>
-        <%= render partial: 'storie/story_list_item', locals: { story: @story } %>
+        <%= render partial: 'stories/story_list_item', locals: { story: @story } %>
       <% end %>
     </div>
   <% end %>

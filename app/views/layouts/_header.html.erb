@@ -27,7 +27,7 @@
           <%= react_component('SearchContainer') %>
         </li>
         <% if user_signed_in? %>
-          <li class="new-storie-button"><%= link_to "Write a article", new_story_path, class: "button" %></li>
+          <li class="new-story-button"><%= link_to "Write a article", new_story_path, class: "button" %></li>
           <li id="notifications">
             <%= react_component('NotificationsContainer', {}) %>
           </li>

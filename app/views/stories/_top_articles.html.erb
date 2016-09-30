@@ -32,7 +32,7 @@
 
       <div class="response-count pull-right">
         <% if story.responses_count > 0 %>
-          <%= link_to (pluralize(story.responses_count, "response")), story_path(storie, anchor: 'responses'), class: 'response-count' %>
+          <%= link_to (pluralize(story.responses_count, "response")), story_path(story, anchor: 'responses'), class: 'response-count' %>
         <% end %>
       </div>
     </div>
