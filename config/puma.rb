@@ -4,9 +4,8 @@
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum, this matches the default thread size of Active Record.
 #
-if Rails.env.production?
 workers Integer(ENV['WEB_CONCURRENCY'] || 2)
-end
+
 threads_count = Integer (ENV['RAILS_MAX_THREADS'] || 5)
 threads threads_count, threads_count
 
