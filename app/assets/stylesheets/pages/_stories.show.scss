@@ -14,7 +14,7 @@ body.posts.show {
     padding-left: 3%;
     padding-right: 3%;
   }
-  .post-picture-wrapper {
+  .story-picture-wrapper {
     padding: 2em 0;
     img {
       display: block;
@@ -33,7 +33,7 @@ body.posts.show {
     @include well-read;
   }
 
-  .post-tags {
+  .story-tags {
     margin: 2em 0 3em;
   }
 
@@ -159,11 +159,11 @@ body.posts.show {
     cursor: pointer;
   }
 
-  .post-show-footer {
+  .story-show-footer {
     background-color: $background-gray;
   }
 
-  .post-metadata-bar > .flex-container {
+  .story-metadata-bar > .flex-container {
     justify-content: space-around;
     align-items: center;
     position: fixed;
@@ -182,7 +182,7 @@ body.posts.show {
     &.is-hidden {
       transform: translate(-50%, 100%);
     }
-    .post-stats {
+    .story-stats {
       width: 55%;
       padding-right: 10px;
       border-right: 1px solid $border-color;

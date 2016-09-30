@@ -6,7 +6,7 @@ var ResponseEditor = {
 
     var editor = new MediumEditor('.medium-editable', {
       placeholder: {
-        text: "Write a response"
+        text: "Write a coment"
       }
     });
 

@@ -2,7 +2,7 @@ class SearchContainer extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { preventHideDropdown: false, showDropdown: false, term: '', posts: [], users: [], tags: [] }
+    this.state = { preventHideDropdown: false, showDropdown: false, term: '', stories: [], users: [], tags: [] }
     this.hideDropdown = this.hideDropdown.bind(this);
     this.showDropdown = this.showDropdown.bind(this);
     this.setPreventHideDropdown = this.setPreventHideDropdown.bind(this);
@@ -56,7 +56,7 @@ class SearchContainer extends React.Component {
   }
 
   renderSearchResults() {
-    if(!this.state.showDropdown || (this.state.posts.length === 0 && this.state.users.length === 0 && this.state.tags.length === 0)) {
+    if(!this.state.showDropdown || (this.state.stories.length === 0 && this.state.users.length === 0 && this.state.tags.length === 0)) {
       return;
     }
 
@@ -65,7 +65,7 @@ class SearchContainer extends React.Component {
         setPreventHideDropdown={this.setPreventHideDropdown}
         resetPreventHideDropdown={this.resetPreventHideDropdown}
         term={this.state.term}
-        posts={this.state.posts}
+        stories={this.state.stories}
         users={this.state.users}
         tags={this.state.tags}
       />

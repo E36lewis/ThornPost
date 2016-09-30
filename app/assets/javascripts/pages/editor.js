@@ -29,7 +29,7 @@ var Editor = {
 
     // preload tags if its edit.
     var tag_string = $('[data-behavior="tags"]').data("tags");
-    var tags = tag_string.length > 0 ? tag_string.split(', ') : ['Story', 'Music'];
+    var tags = tag_string.length > 0 ? tag_string.split(', ') : ['Article', 'Music'];
 
     var my_taggle = new Taggle('js-taggle', {
       duplicateTagClass: 'bounce',
@@ -39,10 +39,10 @@ var Editor = {
 
     // FIXME: is there a better way to do this?
     $('[data-behavior="publish-button"').hover(function() {
-      $('#post_all_tags').val(my_taggle.getTagValues());
+      $('#story_all_tags').val(my_taggle.getTagValues());
     });
 
-    $("#post_picture").change(function(){
+    $("#story_picture").change(function(){
       Editor.readURL(this);
       $('#existing-img-previewer').addClass('hidden');
       $('.picture_upload').addClass('active');
@@ -52,12 +52,12 @@ var Editor = {
     /*** Autosave ***/
     $('[data-behavior="autosave"]').autoSave(function() {
       $('[data-behavior="editor-message"]').text('Saving...');
-      $('#post_all_tags').val(my_taggle.getTagValues());
+      $('#story_all_tags').val(my_taggle.getTagValues());
       Editor.postAutosave($('.editor-form').attr('action'),
                    $('input[name="_method"]').val(),
-                   $('#post_title').val(),
-                   $('#post_body').val(),
-                   $('#post_all_tags').val()
+                   $('#story_title').val(),
+                   $('#story_body').val(),
+                   $('#story_all_tags').val()
                   );
     }, 500);
 

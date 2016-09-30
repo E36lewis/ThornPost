@@ -1,6 +1,6 @@
 var InlineEditor = {
   init: function() {
-    /*** Simply return if it's not dashboards#show page ***/
+    /*** Simply return if it's not dashboard#show page ***/
     if (!$('[data-page="inline-editor"]').length > 0) {
       return;
     }

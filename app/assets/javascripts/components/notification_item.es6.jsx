@@ -31,7 +31,7 @@ class NotificationItem extends React.Component {
   notificationContent() {
     const { actor, action, type } = this.props;
     switch (type) {
-      case 'post':
+      case 'story':
         return `${actor} ${action} ${type}`;
       case 'user':
         return `${actor} ${action}`;

@@ -2,20 +2,20 @@ aside.main-sidebar {
   padding-top: 2em;
   background-color: $background-gray;
 
-  .sidebar-top-stories {
+  .sidebar-top-articles {
     ul {
       list-style: none;
       padding: 1em;
     }
-    .top-stories-list-item {
+    .top-articles-list-item {
       display: flex;
       margin-bottom: 1.1em;
     }
-    .top-stories-links {
+    .top-articles-links {
       padding-bottom: 1em;
       min-width: 80%;
       border-bottom: 1px solid $border-color;
-      .post-title {
+      .story-title {
         color: rgba(0,0,0,0.8);
         font-size: 14px;
         text-decoration: none;

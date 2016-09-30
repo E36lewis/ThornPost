@@ -1,6 +1,6 @@
-var PostMetadataBar = {
+var StoryMetadataBar = {
   init: function() {
-    if (!$('[data-page="post-metadata-bar"]').length > 0) {
+    if (!$('[data-page="story-metadata-bar"]').length > 0) {
       return;
     }
 
@@ -23,5 +23,5 @@ var PostMetadataBar = {
   }
 };
 
-$(document).ready( PostMetadataBar.init );
-$(document).on( 'page:load', PostMetadataBar.init );
+$(document).ready( StoryMetadataBar.init );
+$(document).on( 'page:load', StoryMetadataBar.init );

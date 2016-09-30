@@ -91,20 +91,20 @@ nav.navbar {
     align-self: auto;
   }
 
-  .new-post-button {
+  .new-story-button {
     display: none;
   }
-  .new-post-button a {
+  .new-story-button a {
     transition: all .1s;
     color: $light-gray;
   }
-  .new-post-button:hover {
+  .new-story-button:hover {
     a {
       color: $light-font-color;
       border-color: $border-hover-color;
     }
   }
-  .new-post-button,
+  .new-story-button,
   .sign-in-button  {
     margin-top: 5px;
     margin-right: 10px;

@@ -1,6 +1,6 @@
 body.users.show,
 body.users.edit,
-body.recommended_posts.index {
+body.recommended_stories.index {
   .banner-container {
     background-color: $background-gray;
     width: 100%;
@@ -68,7 +68,7 @@ body.recommended_posts.index {
   .tag {
     background-color: $background-gray;
   }
-  .posts-wrapper {
+  .stories-wrapper {
     padding-top: 22px;
     padding-bottom: 22px;
     width: 50%;
@@ -76,7 +76,7 @@ body.recommended_posts.index {
     margin: auto;
   }
 
-  .recommended-post-card {
+  .recommended-story-card {
     display: block;
     width: 50%;
     padding: 1em 0;

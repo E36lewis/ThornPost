@@ -10,8 +10,8 @@ class SearchResultsList extends React.Component {
             <i className="fa fa-search"></i> Search for <strong>{this.props.term}</strong>
           </a>
         </li>
-        {this.renderPostHeading()}
-        {this.renderPosts()}
+        {this.renderStoryHeading()}
+        {this.renderStories()}
         {this.renderUserHeading()}
         {this.renderUsers()}
         {this.renderTagHeading()}
@@ -20,9 +20,9 @@ class SearchResultsList extends React.Component {
     );
   }
 
-  renderPosts() {
-   return this.props.posts.slice(0, 3).map((post) => {
-      return <SearchPostListItem key={post.id} post={post} />
+  renderStories() {
+   return this.props.stories.slice(0, 3).map((story) => {
+      return <SearchStoryListItem key={story.id} story={story} />
     });
   }
 
@@ -38,10 +38,10 @@ class SearchResultsList extends React.Component {
     });
   }
 
-  renderPostHeading() {
-    if (this.props.posts.length === 0) { return; }
+  renderStoryHeading() {
+    if (this.props.stories.length === 0) { return; }
 
-    return <li className="autocomplete-heading"><h4>Posts</h4></li>
+    return <li className="autocomplete-heading"><h4>Stories</h4></li>
   }
 
   renderUserHeading() {
