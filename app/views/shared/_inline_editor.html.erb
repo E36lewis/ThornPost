@@ -3,7 +3,7 @@
     <%= avatar_for(current_user, size: 40) %>
     <strong class="editor-username"><%= current_user.username %></strong>
   </div>
-  <%= form_for @dashboard.new_story, url: story_create_and_edit_path, html: { multipart: true, class: "editor-form", autocomplete: "off" } do |f| %>
+  <%= form_for @dashboard.new_story, url: storie_create_and_edit_path, html: { multipart: true, class: "editor-form", autocomplete: "off" } do |f| %>
     <div class="form-group">
       <%= f.text_area :body, class: 'medium-editable story-body', id: 'editor-body' %> 
     </div>
