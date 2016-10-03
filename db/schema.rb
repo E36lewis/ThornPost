@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929210213) do
+ActiveRecord::Schema.define(version: 20161003233811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,13 +105,14 @@ ActiveRecord::Schema.define(version: 20160929210213) do
     t.text     "body"
     t.string   "picture"
     t.integer  "user_id"
-    t.boolean  "featured",     default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "featured",        default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.text     "lead"
-    t.integer  "likes_count",  default: 0
+    t.integer  "likes_count",     default: 0
     t.datetime "published_at"
     t.string   "slug"
+    t.integer  "responses_count", default: 0,     null: false
     t.index ["slug"], name: "index_stories_on_slug", unique: true, using: :btree
     t.index ["user_id"], name: "index_stories_on_user_id", using: :btree
   end
