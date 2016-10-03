@@ -9,6 +9,7 @@ gem 'puma', '~> 3.0'
 gem 'sinatra', require: false
 gem 'sidekiq'
 gem 'react-rails'
+gem 'redis'
 
 
 gem 'devise'
@@ -46,7 +47,6 @@ gem 'aws-sdk', '~> 2'
 group :production do
   gem 'rails_12factor', '0.0.2'
   gem 'bonsai-elasticsearch-rails'
-  gem 'redis'
 end
 
 # Use Capistrano for deployment

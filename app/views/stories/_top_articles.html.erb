@@ -17,7 +17,7 @@
       <h3 class="story-title"><%= link_to story.title, story %></h3>
       <% if story.lead %>
         <div class="story-body"><%= truncate(story.lead, length: 190, separator: ' ', escape: false) %></div>
-        <%= link_to "Read more", story_path, class: 'read-more' %>
+        <%= link_to "Read more", story, class: 'read-more' %>
       <% end %>
     </div>
 

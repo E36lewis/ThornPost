@@ -53,7 +53,7 @@ var Editor = {
     $('[data-behavior="autosave"]').autoSave(function() {
       $('[data-behavior="editor-message"]').text('Saving...');
       $('#story_all_tags').val(my_taggle.getTagValues());
-      Editor.postAutosave($('.editor-form').attr('action'),
+      Editor.storyAutosave($('.editor-form').attr('action'),
                    $('input[name="_method"]').val(),
                    $('#story_title').val(),
                    $('#story_body').val(),
@@ -84,7 +84,7 @@ var Editor = {
     }
   },
 
-  postAutosave: function(url, method, title, body, all_tags) {
+  storyAutosave: function(url, method, title, body, all_tags) {
     $.ajax({
       url: '/api' + url,
       dataType: "script",
