@@ -5,7 +5,7 @@ class StoriesController < ApplicationController
    layout "editor", only: [:new, :edit, :create, :update]
    
   def show
-    @story = Story.find(params[:id])
+    @story = current_story
     @responses = @story.responses.includes(:user)
     @related_stories = @story.related_stories
     # If an old id or a numeric id was used to find the record, then
