@@ -19,6 +19,6 @@ class API::StoriesController < ApplicationController
   private
 
   def story_params
-      params.require(:story).permit(:title, :body, :all_tags, :picture)
+      params.permit(:title, :body, :all_tags, :picture)
   end
 end
