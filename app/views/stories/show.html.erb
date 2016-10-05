@@ -9,7 +9,7 @@
     </div>
     <%= render 'story_metadata', story: @story %>
 
-    <% if @article.picture? %>
+    <% if @story.picture? %>
       <div class="story-picture-wrapper">
         <%= image_tag @story.picture.url(:thumb) %>
       </div>
@@ -63,10 +63,10 @@
 </div> 
 
 <div class="story-show-footer row" data-animation="fadeInUp-fadeOutDown">
-  <% if @related_.any? %>
+  <% if @related_stories.any? %>
     <div class="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3 main-content related-stories">
       <h4 class="small-heading">Related stories</h4>
-      <% @related_story.each do |story| %>
+      <% @related_stories.each do |story| %>
         <%= render partial: 'stories/story_list_item', locals: { story: @story } %>
       <% end %>
     </div>
