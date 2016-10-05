@@ -1,4 +1,4 @@
-require 'elasticsearch/rails/tasks/import
+require 'elasticsearch/rails/tasks/import'
 
 namespace :elasticsearch do
   desc 'reindex Elasticsearch for all searchable models'
