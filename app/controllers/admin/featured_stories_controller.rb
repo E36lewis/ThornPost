@@ -13,7 +13,7 @@ class Admin::FeaturedStoriesController < ApplicationController
 
   private
 
-    def storie
+    def story
       @_story ||= Story.find(params[:story_id])
     end
 end
