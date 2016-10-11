@@ -5,7 +5,7 @@ class DigestMailer < ApplicationMailer
   # TODO: change mail to: @user.email when it's production ready
   def daily_email(user)
     @user = user
-    @recommended = Post.latest(5).published
-    mail to: "ken.hibino7@gmail.com", subject: "Stories Daily Digest"
+    @recommended = Story.latest(5).published
+    mail to: "chri3topher_t@hotmail.com", subject: "ThornPost Weekly Digest"
   end
 end

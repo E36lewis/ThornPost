@@ -23,10 +23,10 @@ class StoriesController < ApplicationController
   def create
     @story = current_user.stories.build(story_params)
     if @story.publish
-      redirect_to @story, notice: "Successfully published the post!"
+      redirect_to @story, notice: "Successfully published the story!"
     else
       @story.unpublish
-      flash.now[:alert] = "Could not update the post, Please try again"
+      flash.now[:alert] = "Could not update the story, Please try again"
       render :new
     end
   end
@@ -37,17 +37,17 @@ class StoriesController < ApplicationController
   def update
     @story.assign_attributes(story_params)
     if @story.publish
-      redirect_to @story, notice: "Successfully published the storie!"
+      redirect_to @story, notice: "Successfully published the story!"
     else
       @story.unpublish
-      flash.now[:alert] = "Could not update the storie, Please try again"
+      flash.now[:alert] = "Could not update the story, Please try again"
       render :edit
     end
   end
 
   def destroy
     @story.destroy
-    redirect_to root_url, notice: "Successfully deleted the storie"
+    redirect_to root_url, notice: "Successfully deleted the story"
   end
 
   # TODO: ideally move this to a separate controller?

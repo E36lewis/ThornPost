@@ -87,7 +87,7 @@ class Story < ApplicationRecord
     words.size
   end
 
-  # Generate a lead which appears in post panel.
+  # Generate a lead which appears in story panel.
   # FIXME: this method needs refactoring or completely different approach
   def generate_lead!
     if self.published?
