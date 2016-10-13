@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 ruby '2.2.4'
 
@@ -10,6 +10,7 @@ gem 'sinatra', require: false
 gem 'sidekiq'
 gem 'react-rails'
 gem 'redis'
+gem 'sidetiq'
 
 
 gem 'devise'
