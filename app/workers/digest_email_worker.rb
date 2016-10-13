@@ -1,6 +1,6 @@
  class DigestEmailWorker
    include Sidekiq::Worker
-   include Sidetiq::Schedulable
+   include Sidekiq::Schedulable
    sidekiq_options :queue => :mailer
 
    recurrence { daily.hour_of_day(6) }
