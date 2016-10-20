@@ -4,11 +4,11 @@
     margin-top: 5px;
     margin-right: 10px;
     border: none;
-    @include border-radius($button);
+ /**   @include border-radius($button); **/
 
     button[type="submit"] {
       border: 1px solid $border-color;
-      @include border-radius($round);
+    /**  @include border-radius($round); **/
       width:40px;
       height: 40px;
       outline: none;
@@ -22,7 +22,7 @@
     }
     input[type="search"] {
       padding: 0.6em 0.8em 0.7em 2.5em;
-      @include border-radius($button);
+    /**  @include border-radius($button); **/
       border: 1px solid $border-color;
       outline: none;
       background-color: transparent;
@@ -124,7 +124,7 @@
       padding: 3px 0 !important;
       overflow: hidden;
       &:hover {
-        background-color: $white;
+        background-color: $accent-color;
         color: $font-black;
       }
     }

@@ -3,15 +3,16 @@ body.registrations.new {
   input[type="text"],
   input[type="password"],
   input[type="email"] {
+	margin-left: center;
     font-size: 28px;
     font-weight: 100;
     width: 100%;
-    border: none;
-    outline: none;
-    background-color: rgb(250, 255, 189);
+    border: 1px solid #999;
+    outline: 1px;
+    background-color: rgba(0, 0, 255, 0.1);
   }
   .form-input-wrapper {
-    padding: 1.5em 0;
+    padding: 1em 0;
   }
   .remember-me {
     display: inline-block;

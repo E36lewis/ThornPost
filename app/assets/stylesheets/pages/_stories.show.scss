@@ -8,7 +8,7 @@ body.stories.show {
   .filter-links, .new-story-button {
     display: none;
   }
-  .main-content {
+  .main-body {
     padding-top: 2em;
     padding-bottom: 2em;
     padding-left: 3%;
@@ -30,7 +30,7 @@ body.stories.show {
   }
 
   .body {
-    @include well-read;
+    @include well-read; 
   }
 
   .story-tags {
@@ -51,7 +51,7 @@ body.stories.show {
       margin-right: 0;
     }
   }
-  .main-content .story-stats {
+  .main-body .story-stats {
     .fa {
       width: 24px;
       font-size: 22px;
@@ -97,7 +97,7 @@ body.stories.show {
 
   .related-articles {
     .story-list-item {
-      padding: 20px;
+      padding: 10px;
       border-bottom: 1px solid $border-color;
       .flex-container {
         align-items: center;
@@ -110,11 +110,11 @@ body.stories.show {
       margin-left: auto;
       img {
         max-width: 150px;
-        border-radius: 3px;
+        border-radius: 0px;
       }
     }
     .pli-title {
-      font-size: 18px;
+      font-size: 20px;
       a {
         color: $light-font-color;
         text-decoration: none;

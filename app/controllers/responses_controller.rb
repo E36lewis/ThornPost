@@ -2,7 +2,7 @@ class ResponsesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @story = Story.find(params[:story_id])
+    @story = Story.friendly.find(params[:story_id])
     @response = current_user.responses.create(body: params[:response][:body], story_id: @story.id)
     if @response.valid?
       notify_author_and_responders

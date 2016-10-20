@@ -6,13 +6,7 @@
       <% end %>
     </div>
     <ul class="nav navbar-nav filter-links">
-      <li>
-        <% if user_signed_in? %>
-          <%= nav_link_to "Home", root_path %>
-        <% else %>
-          <%= nav_link_to "Staff pick", root_path %>
-        <% end %>
-      </li>
+
       <li><%= nav_link_to "Top Articles", top_articles_path %></li>
       <% if user_signed_in? %>
         <li><%= nav_link_to "Bookmarks", dashboard_bookmarks_path %></li>

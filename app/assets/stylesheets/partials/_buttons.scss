@@ -1,32 +1,37 @@
 .button {
   border: 1px solid $border-color;
   padding: 0.6em 1em 0.7em 1em;
-  @include border-radius($button);
+ /** @include border-radius($button); **/
   text-decoration: none;
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,225,0.6);
   font-size: 14px;
   outline: none;
   transition: all .1s;
   &:hover {
     text-decoration: none;
-    color: rgba(0,0,0,0.8);
+    color: rgba(0,0,255,0.8);
     border-color: $border-hover-color;
   }
 
   &.green-border-button {
     color: $accent-color !important; // override bootstrap styles
     border-color: $accent-color;
-    background-color: #fff;
+    background-color: $white;
+  }
+  &.green-border-buttton:hover {
+	color: $accent-color;
+	background-color: $white;
+	border-color: #ACE5EE;
   }
   &.green-inner-button {
-    color: #fff;
-    background-color: $button-green;
+    color: $white; 
+    background-color: $accent-color; 
     border-color: $button-green;
   }
   &.green-inner-button:hover {
-    color: $button-green;
+    color: $accent-color;
     background-color: $white;
-    border-color: $button-green;
+    border-color: #ACE5EE;
   }
 }
 
@@ -36,7 +41,7 @@
   height: 35px;
   border: 1px solid $border-color;
   @include border-radius($round);
-  background-color: #fff;
+  background-color: #B2FFF;
   margin-right: 20px;
   .count-button {
     position: absolute;

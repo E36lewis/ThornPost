@@ -2,7 +2,7 @@
   position: fixed;
   min-width: 360px;
   text-align: center;
-  @include border-radius(0);
+  /**@include border-radius(0);**/
   top: 0;
   left: 50%;
   z-index: $alert;

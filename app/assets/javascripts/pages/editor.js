@@ -7,7 +7,7 @@ var Editor = {
 
     var editor = new MediumEditor('.medium-editable', {
       placeholder: {
-        text: "Tell your Story ..."
+        text: "News is fading, lets change that"
       }
     });
 
@@ -15,7 +15,7 @@ var Editor = {
       editor: editor,
       addons: {
         images: {
-          fileUploadOptions: { // TODO: figure out how to upload pictures to AS3
+          fileUploadOptions: {
             url: $('.editor-form').attr('action'),
             acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
             method: 'PATCH'
@@ -29,7 +29,7 @@ var Editor = {
 
     // preload tags if its edit.
     var tag_string = $('[data-behavior="tags"]').data("tags");
-    var tags = tag_string.length > 0 ? tag_string.split(', ') : ['Article', 'Music'];
+    var tags = tag_string.length > 0 ? tag_string.split(',') : ['Article'];
 
     var my_taggle = new Taggle('js-taggle', {
       duplicateTagClass: 'bounce',
@@ -37,7 +37,7 @@ var Editor = {
       preserveCase: true
     });
 
-    // FIXME: is there a better way to do this?
+
     $('[data-behavior="publish-button"').hover(function() {
       $('#story_all_tags').val(my_taggle.getTagValues());
     });
