@@ -1,8 +1,11 @@
 <div data-behavior="overlay" class="overlay overlay-hugeinc">
   <button data-behavior="close-overlay" type="button" class="overlay-close"><span class="glyphicon glyphicon-remove"></span></button>
   <nav>
-    <h2 class="grayed-heading center">Sign in or create an account</h2>
-    <ul class="omniauth-button-group">
+    <h2 class="grayed-heading center">Creating an account will also allow you to recive our Daily Digest!</h2>
+      <ul class="omniauth-button-group">
+	  <li>
+        <%= link_to "Sign in or create your account", new_user_session_path, class: "signin-signup-link" %>
+      </li>
       <li class="omniauth-button">
         <%= link_to user_facebook_omniauth_authorize_path, class: 'button facebook' do %>
           <%= icon('facebook-official') %>Sign in with Facebook
@@ -19,10 +22,6 @@
         <%= link_to user_twitter_omniauth_authorize_path, class: 'button twitter' do %>
           <%= icon('twitter') %>Sign in with Twitter
         <% end %>
-      </li>
-
-      <li>
-        <%= link_to "Sign in or Sign up with email", new_user_session_path, class: "signin-signup-link" %>
       </li>
     </ul>
   </nav>
