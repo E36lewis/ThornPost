@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 ruby '2.2.4'
 
@@ -37,6 +37,7 @@ gem 'dalli'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass', '~> 4.6.2'
 gem 'friendly_id', '~> 5.1.0'
+#gem 'meta-tags'
 
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'mini_magick', '3.8.0'

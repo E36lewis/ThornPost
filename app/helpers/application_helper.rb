@@ -40,4 +40,8 @@ module ApplicationHelper
     options[:class].strip!
     link_to text, url, options
   end
+  
+  def provide_safe(name, content)
+	provide(name, content.html_safe)
+  end
 end

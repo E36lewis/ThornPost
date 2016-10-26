@@ -8,8 +8,7 @@
 
   <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
   <%= favicon_link_tag 'thornpost-icon-apple-touch-180x180.png', rel: 'apple-touch-icon', type: 'image/png' %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="description" content="<%= yield(:description) %>">
 </head>
 <body class="<%= controller.controller_name %> <%= controller.action_name %>">
   <%= render 'layouts/overlay' unless user_signed_in? %>
