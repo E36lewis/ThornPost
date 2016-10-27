@@ -8,28 +8,32 @@
             padding-top: 15px;
             padding-bottom: 5px;
             text-align: center;
-            ">Welcome to ThornPost!</h2>
+            ">Welcome to <%= image_tag('thornpost-logo.png', height: 30, style: "display: block; margin: 0 auto; padding-top: 15px") %></h2>
 
-  <hr style="max-width: 40px; border: 1px solid rgba(0,0,0, 0.2);"/>
+  <hr style="max-width: 80%; border: 1px solid rgba(0,0,0, 0.2);"/>
 
   <p style="text-align: center; font-family: 'Open Sans', sans-serif; font-size: 18px;
             color: rgba(0,0,0,0.6); line-height: 1.4;">
-  Hi <strong style="color: #00ab6b;"><%= @user.username %></strong>, thank you for becoming a member of ThornPost!<br/>
-    We've got some suggestions to get you started.
+  Hi <strong style="color: #0087BD;"><%= @user.username %></strong>, thank you for becoming a member of ThornPost!<br/>
+    To help you get started, here are some things to get you started.
   </p>
 </div>
 
 
 <div style="text-align: center;"> 
   <h4 style="font-family: 'Open Sans', sans-serif; font-size: 18px;
-            color: rgba(0,0,0,0.6); line-height: 1.4;">Follow other users and tags to customize your feed</h4>
+            color: rgba(0,0,0,0.6); line-height: 1.4;"><%= link_to "Follow other users and tags to customize your feed.", root_url %></h4>
   <h4 style="font-family: 'Open Sans', sans-serif; font-size: 18px;
-            color: rgba(0,0,0,0.6); line-height: 1.4;">Share your story with the community</h4>
+            color: rgba(0,0,0,0.6); line-height: 1.4;"><%= link_to "Share relevant news or cool photo/videos with the community", root_url %></h4>
 </div>
 
-
-  <%= image_tag "kernriver.jpeg", alt: "Kern River", style: "display: block; max-width: 600px; margin: 0 auto;" %>
+  <hr style="max-width: 90%; border: 1px solid rgba(0,0,0, 0.2);"/>
+  
+  <%= image_tag "kernriver.jpeg", alt: "Kern River", style: "display: block; width: 400px; height: 200px; margin: 0 auto; padding-bottom: 10px; padding-top: 10px;" %>
+			
+  <hr style="max-width: 100%; border: 1px solid rgba(0,0,0, 0.2);"/>
+  
 <p style="text-align: center; font-family: 'Open Sans', sans-serif; font-size: 18px;
-            color: rgba(0,0,0,0.6); line-height: 1.4;">
-  Again, thanks for creating an account on ThornPost.
+            color: rgba(0,0,255,0.8); line-height: 1.4;">
+  Again, thanks for creating an account on ThornPost!
 </p>

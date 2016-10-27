@@ -1,11 +1,11 @@
 var ProgressBar = {
   init: function() {
     // Hook into Turbolinks event
-    $(document).on('page:fetch', function() {
+    $(document).on('turbolinks:fetch', function() {
       $('[data-behavior="progress-bar"]').addClass('active');
     });
 
-    $(document).on('page:load', function() {
+    $(document).on('turbolinks:load', function() {
       $('[data-behavior="progress-bar"]').removeClass('active');
     });
   }

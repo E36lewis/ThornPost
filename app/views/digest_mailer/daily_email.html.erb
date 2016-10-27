@@ -1,7 +1,12 @@
-<div style="max-width: 600px; margin: 0 auto; text-align: center;">
+<%= image_tag('thornpost-logo.png', height: 35, style: "display: block; margin: 0 auto; padding-top: 15px") %>
+
+<hr style="max-width: 50%; border: 0.5px solid rgba(0,0,0, 0.2);"/>
+</div>
+
+<div style="max-width: 600px; margin: 10 auto; text-align: center;">
   <strong style="color: rgba(0,0,0,0.8);
             font-family: 'Open Sans', sans-serif;
-            font-size; 22px;
+            font-size: 26px;
             font-weight: bold;
             line-height: 24px;
             margin: 0;
@@ -9,24 +14,13 @@
             padding-bottom: 5px;
             ">ThornPost Daily Digest</strong>
 
-    <hr style="max-width: 40px; border: 1px solid rgba(0,0,0, 0.2);"/>
+    <hr style="max-width: 90%; border: 1px solid rgba(0,0,0, 0.4);"/>
 </div>
 
-<div style="max-width: 600px; margin: 0 auto;">
-  <div style="text-align: center; padding-top: 5px; padding-bottom: 3px;">
-    <small style="color: rgba(0,0,0,0.3); font-family: 'Open Sans', sans-serif;
-    font-size: 14px; font-weight: 100px; text-transform: uppercase; 
-    letter-spacing: 0.1px;" >Recommended by </small>
-  </div>
-  <div style="text-align: center;">
-    <small style="color: rgba(0,0,0,0.8); font-family: 'Open Sans', sans-serif;
-    font-size: 16px; font-weight: bold; text-transform: uppercase; 
-    letter-spacing: 0.9px;" >ThornPost Staff</small>
-  </div>
   
   <% @recommended.each do |story| %>
-    <div style="max-width: 400px; margin: 0 auto; padding: 30px 0;
-                border-bottom: 1px solid rgba(0,0,0,0.05);">
+    <div style="max-width: 400px; margin: 0 auto; padding: 30px;
+                border-bottom: 1px solid rgba(0,0,0,0.5);">
       <% if story.picture? %>
         <%= image_tag story.picture.url(:thumb), style: "display: block;
             max-width: 400px; margin: 0 auto;" %>
@@ -40,7 +34,7 @@
       <div style="margin: 0; padding-top: 15px; display: flex;">
         <%= avatar_for story.user, size: 40, style: "border-radius: 50%; margin-right: 12px;" %>
         <div>
-          <%= link_to story.username, user_url(story.user), style: "color: #00ab6b;
+          <%= link_to story.username, user_url(story.user), style: "color: #0087BD;
               text-decoration: none; font-family: 'Open Sans', sans-serif;" %><br/>
               <small style="color: rgba(0,0,0,0.8); font-family: 'Open Sans', sans-serif;">
                 <%= time_ago_in_words(story.created_at) %> ago &#149; <%= story_length_in_minutes(story.body) %>
@@ -53,7 +47,7 @@
 
 <div style="margin: 0; padding: 30px 0; text-align: center;">
   <%= link_to "Read more Articles", root_url,
-      style: "padding: 0.5em 1em; border-radius: 20px;
-              text-decoration: none; font-size: 16px; border: none; outline: none;
-              background-color: #02b875; color: #ffffff;" %>
+      style: "padding: 0.5em 1em; border-radius: 0px;
+              text-decoration: none; font-size: 18px; border: none; outline: none;
+              background-color: #0087BD; color: #ffff;" %>
 </div>

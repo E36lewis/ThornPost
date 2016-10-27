@@ -15,7 +15,7 @@ body.stories.show {
     padding-right: 3%;
   }
   .story-picture-wrapper {
-    padding: 2em 0;
+    padding: 2em;
     img {
       display: block;
       max-width: 100%;
@@ -34,7 +34,7 @@ body.stories.show {
   }
 
   .story-tags {
-    margin: 2em 0 3em;
+    margin: 2em 3em;
   }
 
   .tag {
@@ -70,10 +70,10 @@ body.stories.show {
   .author-info {
     display: flex;
     justify-content: space-around;
-    padding: 2.5em 0;
+    padding: 2.5em;
     border-top: 1px solid $light-border-color;
     border-bottom: 1px solid $light-border-color;
-    margin: 2em 0 0;
+    margin: 2em;
     .avatar-image {
       vertical-align: top;
       margin-right: 20px;
@@ -91,7 +91,7 @@ body.stories.show {
   }
 
   .edit-delete-button-wrapper {
-    padding: 1em 0;
+    padding: 1em;
     margin-bottom: 1em;
   }
 

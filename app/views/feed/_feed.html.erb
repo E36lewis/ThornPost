@@ -14,7 +14,7 @@
     </div>
     <% elsif feed.featured?(story) %>
       <div class="feed-metadata">
-        Featured by Articles Staff and recommended by <%= pluralize(story.likes_count, 'other') %>
+        Highest Rated Articles <%= pluralize(story.likes_count, 'other') %>
       </div>
     <% end %>
     <%= render partial: 'stories/story', locals: { story: story } %>
