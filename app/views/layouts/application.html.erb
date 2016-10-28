@@ -8,22 +8,26 @@
 
   <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
   <%= favicon_link_tag 'thornpost-icon-apple-touch-180x180.png', rel: 'apple-touch-icon', type: 'image/png' %>
+  <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="description" content="Discover the news that helps you stay informed on decisions that effect your way of living, along with the added pleasures of photos and videos around the world, your dopamine levels are always taken care of!"/>
   <meta name="keywords" content="news, photos, videos, social sharing, social, stories, information, funny, procrastination, education, connected, politics, business, government"/>
+  <link rel="canonical" href="thornpost.com"/>
   <meta name="twitter:site_name" content="Thornpost"/>
   <meta name="twitter:site" content="@thornpost"/>
   <meta name="twitter:title" content="ThornPost"/>
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:description" content="Enjoy the pleasures of cool photos and videos around the world while recive informative news around the world"/>
-  <meta name="twitter:image" content="assets\images\favicon.png"/>
+  <meta name="twitter:image" content="assets/images/favicon.svg"/>
   <meta name="twitter:image:width" content="100"/>
   <meta name="twitter:image:height" content="100"/>
-  <meta name="image" content="assets\images\favicon.png"/>
+  <meta name="image" content="assets/images/favicon.svg"/>
   <meta property="og:title" content="ThornPost"/>
   <meta property="og:description" content="Enjoy the pleasures of cool photos and videos around the world while recive informative news around the world"/>
-  <meta property="og:image" content="assets\images\favicon.png"/>
-  <meta property="og:url" content="www.thornpost.com"/>
+  <meta property="og:image" content="assets/images/favicon.svg"/>
+  <meta property="og:image:width" content="100"/>
+  <meta property="og:image:height" content="100"/>
+  <meta property="og:url" content="thornpost.com"/>
 </head>
 <body class="<%= controller.controller_name %> <%= controller.action_name %>">
   <%= render 'layouts/overlay' unless user_signed_in? %>
