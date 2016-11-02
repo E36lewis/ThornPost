@@ -4,6 +4,7 @@ body.stories.show {
   }
   .navbar {
     border: none;
+	padding-bottom: 1em;
   }
   .filter-links, .new-story-button {
     display: none;
@@ -15,11 +16,11 @@ body.stories.show {
     padding-right: 3%;
   }
   .story-picture-wrapper {
-    padding: 2em;
+	padding: 2em;
     img {
-      display: block;
-      max-width: 100%;
-      margin: auto;
+	  margin: auto;
+	  max-width: 100%;
+	  display: block;
     }
   }
 
@@ -110,6 +111,7 @@ body.stories.show {
       margin-left: auto;
       img {
         max-width: 150px;
+		max-height: 78px;
         border-radius: 0px;
       }
     }

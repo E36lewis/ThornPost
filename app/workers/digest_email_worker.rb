@@ -3,7 +3,7 @@
    include Sidetiq::Schedulable
    sidekiq_options :queue => :mailer
 
-   recurrence { daily.hour_of_day(6) }
+   recurrence { monthly.day_of_week(5).hour_of_day(12) }
 
    def perform
      User.find_each do |user|

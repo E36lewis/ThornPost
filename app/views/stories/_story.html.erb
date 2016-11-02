@@ -2,7 +2,7 @@
   <%= render partial: 'stories/story_metadata', locals: { story: story } %>
 
   <% if story.picture? %>
-    <div class="storie-picture-wrapper">
+    <div class="story-picture-wrapper">
       <%= image_tag story.picture.url(:thumb) %>
     </div>
   <% end %>

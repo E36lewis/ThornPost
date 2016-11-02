@@ -3,15 +3,19 @@
   padding-bottom: 2em;
 }
 
-body.dashboards.show,
-body.dashboards.bookmarks,
-body.dashboards.top_articles {
+body.dashboard.show,
+body.dashboard.bookmarks,
+body.dashboard.top_articles {
   .main-container {
     background: $background-gray;
   }
   .stories-wrapper > .story-panel {
     background: $white;
-    padding: 10px;
+    padding: 1em;
+	padding-top: 1em;
+	margin-left: 10px;
+	line-height: 21px;
+	min-height: 90px;
     margin-bottom: 10px;
     border: 1px solid rgba(0,0,0, 0.09);
     @include box-shadow;

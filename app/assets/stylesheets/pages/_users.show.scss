@@ -1,5 +1,6 @@
 body.users.show,
 body.users.edit,
+body.stories.show,
 body.recommended_stories.index {
   .banner-container {
     background-color: $background-gray;
@@ -68,14 +69,16 @@ body.recommended_stories.index {
   .tag {
     background-color: $background-gray;
   }
-  .stories-wrapper {
+  .stories-wrapper{
+    padding: 15px;
     padding-top: 22px;
     padding-bottom: 22px;
     width: 50%;
     max-width: 550px;
     margin: auto;
+	border: 1px solid rgba(0,0,0, 0.09);
+    @include box-shadow;
   }
-
   .recommended-story-card {
     display: block;
     width: 50%;
