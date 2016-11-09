@@ -31,7 +31,7 @@ class User < ApplicationRecord
   include OmniauthableUser
 
   extend FriendlyId
-  friendly_id :username, use: [ :slugged, :finders ]
+  friendly_id :username, use: [ :slugged, :history, :finders ]
 
   def add_like_to(likeable_obj)
     likes.where(likeable: likeable_obj).first_or_create

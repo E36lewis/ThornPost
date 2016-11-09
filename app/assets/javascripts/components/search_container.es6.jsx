@@ -16,7 +16,7 @@ class SearchContainer extends React.Component {
       url: `/api/autocomplete.json/?term=${term}`,
       method: 'GET',
       success: (data) => { this.setState({
-        posts: data.posts,
+        stories: data.stories,
         users: data.users,
         tags: data.tags
       });}

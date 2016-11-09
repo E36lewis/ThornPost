@@ -9,6 +9,19 @@ body.stories.show {
   .filter-links, .new-story-button {
     display: none;
   }
+  .stories-wrapper > .main-story {
+    background: $white;
+    padding: 1em;
+	padding-top: 1em;
+	margin-left: 10px;
+	line-height: 21px;
+	min-height: 90px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0,0,0, 0.09);
+    @include box-shadow;
+    @include border-radius($radius);
+  }
+
   .main-body {
     padding-top: 2em;
     padding-bottom: 2em;

@@ -1,4 +1,4 @@
-class API::SearchAutoCompleteController < ApplicationController
+class API::SearchAutoCompletecontroller < ApplicationController
 
 	def index
 		results = Elasticsearch::Model.search(params[:term], [Story, Tag, User])
