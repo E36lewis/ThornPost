@@ -5,7 +5,7 @@ class StoriesController < ApplicationController
    layout "editor", only: [:new, :edit, :create, :update]
   
   def index
-	prepare_meta_tags title: "Stories" description:
+	prepare_meta_tags title: "Stories", description:
 	"These are the travels of people around this world."
   end  
   
