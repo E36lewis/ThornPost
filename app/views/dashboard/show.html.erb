@@ -1,5 +1,4 @@
 <div class="col-md-6 col-md-offset-1 dashboard-main-content">
-<% provide_safe(:description, "News articles mixed with Dopomine to get you through the day") %>
   <% unless @dashboard.top_articles? %>
     <% if user_signed_in? && current_page?('/') %>
       <div data-animation="fadeInUp-fadeOutDown">

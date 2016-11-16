@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 	def prepare_meta_tags(options={})
 		site_name   = "ThornPost"
 		title       = [controller_name, action_name].join(" ")
-		description = "ThornPost provides the aggregated news needed for informed decisions, while providing the dopamine levels to get throught the day!"
+		description = "These are the travels of ordinary people throught this extraordinary world."
 		image       = options[:image] || "/assets/images/favicon.png"
 		current_url = request.url
 		
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 			title:        title,
 			image:        image,
 			description:  description,
-			keywords:     %w[news photo video global business science],
+			keywords:     %w[travel explore world people photo video global],
 			twitter: {
 				site_name: site_name,
 				site: @ThornPost,

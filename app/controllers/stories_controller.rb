@@ -3,9 +3,18 @@ class StoriesController < ApplicationController
   before_action :authorize_user, only: [:edit, :update, :destroy]
 
    layout "editor", only: [:new, :edit, :create, :update]
-   
+  
+  def index
+	prepare_meta_tags title: "Stories" description:
+	"These are the travels of people around this world."
+  end  
+  
   def show
     @story = Story.friendly.find(params[:id])
+	prepare_meta_tags(title: @story.name, description: @story.description,
+					  keywords: @story_keywords,
+					  image: @story.picture.url(:large),
+					  twitter: {card: "Summary_large_image"})
     @responses = @story.responses.includes(:user)
     @related_stories = @story.related_stories
     # If an old id or a numeric id was used to find the record, then
@@ -14,6 +23,7 @@ class StoriesController < ApplicationController
     if request.path != story_path(@story)
       redirect_to @story, status: 301
     end
+	
   end
 
   def new

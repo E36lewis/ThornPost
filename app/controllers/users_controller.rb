@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authorize_user, only: [:edit, :update]
   before_action :set_user, only: [:show, :edit, :update]
   
+
   def show
     @followers_count = @user.followers.count
     @following_count = @user.following.count
