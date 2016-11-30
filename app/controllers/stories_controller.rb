@@ -11,7 +11,7 @@ class StoriesController < ApplicationController
   
   def show
     @story = Story.friendly.find(params[:id])
-	prepare_meta_tags(title: @story.name, description: @story.description,
+	prepare_meta_tags(title: @story.title, description: @story.body,
 					  keywords: @story_keywords,
 					  image: @story.picture.url(:large),
 					  twitter: {card: "Summary_large_image"})
