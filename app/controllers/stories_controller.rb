@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
     @story = Story.friendly.find(params[:id])
 	prepare_meta_tags(title: @story.title, description: @story.body,
 					  keywords: @story_keywords,
-					  image: @story.picture.url(:large),
+					  image: @story.picture.url(:thumb),
 					  twitter: {card: "Summary_large_image"})
     @responses = @story.responses.includes(:user)
     @related_stories = @story.related_stories
