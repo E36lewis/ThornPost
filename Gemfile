@@ -4,7 +4,7 @@ ruby '2.2.4'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18.4'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 
 gem 'sinatra', require: false
 gem 'sidekiq'
