@@ -32,7 +32,7 @@ gem 'will_paginate', '~> 3.1.0'
 
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'nokogiri', '~> 1.6'
+gem 'nokogiri', '~> 1.9'
 gem 'dalli'
 
 gem 'bootstrap-sass', '~> 3.3.6'
